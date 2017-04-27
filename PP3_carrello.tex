@@ -1,21 +1,36 @@
 %======================= PREAMBOLO DICHIARAZIONI INIZIALI===============%
-%il mio computer √® stronzo e non mi fa scaricare nessun pacchetto questi sono gli unici che riesco ad usare quindi poi aggiungete quello che vi serve 
 \documentclass[10pt,oneside,a4paper]{article}
 
-\usepackage[english]{babel}
+\usepackage[latin1]{inputenc} 
+\usepackage[italian]{babel}
+\usepackage{siunitx} %Inserisce automaticamente i dati con le unit‡ di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unit‡ di misura})
+\sisetup{output-decimal-marker = {.}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con il punto decimale
+\usepackage{listings} %Per citare codice informatico formattandolo correttamente
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{epigraph}
+\usepackage{booktabs}	%tabelle migliorate
+\usepackage{tablefootnote}	%note a piË di pagina in tabella
+\usepackage{threeparttable} %tabella con note a piË di tabella
+\usepackage{caption}	%descrizione per figure
+\captionsetup{tableposition=top,figureposition=bottom,font=small} %setup descrizione
+\usepackage{float}
+\usepackage{esvect} %vettori
+\usepackage{longtable} %tabelle lunghe
+
+
 \setcounter{section}{-1}
 
 %========= PRIMA PAGINA ===========%
-\title{\textsc{Misura dell'accelerazione di gravit√† attraverso lo studio del moto di un carrello su di un piano inclinato }}
+\title{\textsc{Misura dell'accelerazione di gravit‡ attraverso lo studio del moto di un carrello su di un piano inclinato }}
 \author{\small{G. Galbato Muscio} \and \small{L. Gravina} \and \small{L. Graziotto} \and \small{M. Rescigno}}
 \date{}
 
 \begin{document}
-	\begin{figure}%
+	\begin{figure}
 		\centering
-		\includegraphics[scale=0.5,trim={2.8cm 8.9cm 0 9cm},clip]{logo.png}
+		\includegraphics[scale=0.5, trim={2.8cm 8.9cm 0 9cm}, clip]{logo.png}
 	\end{figure}
 	\maketitle
 	\begin{center} 
@@ -32,7 +47,7 @@
 \hrule
 \vspace{0.5cm}
 \begin{abstract}
-	Studiando dal punto di vista cinematico il moto di un carrello lungo un piano inclinato scabro, diamo diverse stime dell'accelerazione di gravit√† $g$ e del coeficiente di attrito dinamico $\mu_d$.
+	Studiando dal punto di vista cinematico il moto di un carrello lungo un piano inclinato scabro, diamo diverse stime dell'accelerazione di gravit‡ $g$ e del coeficiente di attrito dinamico $\mu_d$.
 \end{abstract}
 \newpage
 \tableofcontents %Indice
@@ -42,12 +57,12 @@
 \section{Convenzioni e formule}
 In questa relazione verranno usate le seguenti convenzioni:
 \begin{enumerate}
-	\item sar√† usato il punto [ $.$ ] come separatore decimale;
-	\item l'approssimazione decimale della cifra $5$ sar√† fatta per eccesso;
-	\item al fine di migliorare la qualit√† dell'elaborazione dei dati, ogni grafico/istogramma prodotto a mano su carta millimetrata sar√† riportato insieme al suo equivalente prodotto attraverso un software di analisi dati\footnote{In questo contesto i dati sono stati elaborati con il software di analisi \emph{R}.};
-	\item al fine di snellire la relazione e migliorarne la leggibilit√†, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati. %
+	\item sar‡ usato il punto [ $.$ ] come separatore decimale;
+	\item l'approssimazione decimale della cifra $5$ sar‡ fatta per eccesso;
+	\item al fine di migliorare la qualit‡ dell'elaborazione dei dati, ogni grafico/istogramma prodotto a mano su carta millimetrata sar‡ riportato insieme al suo equivalente prodotto attraverso un software di analisi dati\footnote{In questo contesto i dati sono stati elaborati con il software di analisi \emph{R}.};
+	\item al fine di snellire la relazione e migliorarne la leggibilit‡, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati. %
 \end{enumerate}
-Inoltre, si far√† riferimento alle seguenti formule:
+Inoltre, si far‡ riferimento alle seguenti formule:
 \begin{enumerate}
 	\item media 
 	\begin{equation}\label{eq:media}
@@ -66,7 +81,7 @@ Inoltre, si far√† riferimento alle seguenti formule:
 %===============SCOPO E DESCRIZIONE DELL'ESPERIENZA==============%
 \section{Scopo e descrizione dell'esperienza}
 \label{sec:description}
-Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale √® soggetto a diverse forze. Proiettando tali forze lungo gli assi le tre componenti che intervengono sono:
+Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale Ë soggetto a diverse forze. Proiettando tali forze lungo gli assi le tre componenti che intervengono sono:
 \begin{itemize}
 	\item  forza peso che accelera il carrello:
 		\begin{center}  
@@ -87,7 +102,7 @@ Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto
 			\end{equation}
 		\end{center}
 \end{itemize}
-Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del sistema √® data da: 
+Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del sistema Ë data da: 
 \begin{center}
 	\begin{equation}\label{eq:accelerazionetot}
 	a_x=g(sin\theta \pm \mu_d cos\theta)
@@ -101,15 +116,15 @@ Dove il segno dipende dalla direzione dell'accelerazione (negativo nel caso disc
 \end{center}
 Per cui la formula per l'accelerazione totale diventa:
 \begin{center}
-	\begin{equation}\label{eq:accelerazionepiccoliangoli)
+	\begin{equation}\label{eq:accelerazionepiccoliangoli}
 	a_x=g(\theta \pm \mu_d).
 	\end{equation}
 \end{center}
 
-In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, daremo diverse stime di $\mu_d$ e di $g$ ottenute con pi√π modalit√†:
+In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, daremo diverse stime di $\mu_d$ e di $g$ ottenute con pi˘ modalit‡:
 
 \begin{itemize}
-	\item misura di $g\mu_d$ con il piano orizzontale imprimendo una piccola velocit√† iniziale 
+	\item misura di $g\mu_d$ con il piano orizzontale imprimendo una piccola velocit‡ iniziale 
 	\item misura di $g$ con un angolo fisso specifico 
 	\item misura simultanea di $g$ e $\mu_d$ con angolo di inclinazione variabile 
 	\item misura di $g$ ottenuta misurando tutto il moto sia nel tratto ascendente che nel tratto discendente
@@ -124,7 +139,7 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 \item carrello;
 \item Guida inclinata lunga circa due metri con scala graduata [divisione:1mm, incertezza:];
 \item Sonar in grado di misurare la posizione del carrello in una dimensione a tempi diversi, interfacciato con il PC;
-\item Programma Data Studio per calcolare derivando in modo numerico velocit√† e accelerazione;
+\item Programma Data Studio per calcolare derivando in modo numerico velocit‡ e accelerazione;
 \item Sqadra per misurare l'altezza del carrello [divisione:1mm, incertezza:];
 \item livella.
 \end{itemize}
@@ -134,11 +149,11 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 
 \subsection{Verifica degli strumenti.}
 \label{subsec:verifica}
-Poich√® il tavolo su cui poggiava la guida era inclinato di circa -1 grado, l'errore √® stato corretto ottenendo cos√¨ un piano perfetamente orizzonatale necesario per lo svolgimento delle prime misurazioni. Il sonar √® stato invece calibrato seguendo le modalit√† indicate, come meglio approfondito nella sezione ~\ref{subsec:calibrazione delle misure di lunghezza dello stumento}.
+PoichÈ il tavolo su cui poggiava la guida era inclinato di circa -1 grado, l'errore Ë stato corretto ottenendo cosÏ un piano perfettamente orizzontale necessario per lo svolgimento delle prime misurazioni. Il sonar Ë stato invece calibrato seguendo le modalit‡ indicate, come meglio approfondito nella sezione ~\ref{subsec:calibrazione delle misure di lunghezza dello stumento}.
 
 %================ CALIBRAZIONE ==================%
 \subsection{calibrazione delle misure di lunghezza dello strumento.}
-Lo strumento utilizzato per registrare le misure di posizione (Sonar) deve essere calibrato. Per fare ci√≤ √® necessario posizionare il carrello sulla guida orizzontale e confrontare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico √® possibile estrapolare la retta di calibrazione.\newline
+Lo strumento utilizzato per registrare le misure di posizione (Sonar) deve essere calibrato. Per fare ciÚ Ë necessario posizionare il carrello sulla guida orizzontale e confrontare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico Ë possibile estrapolare la retta di calibrazione.\newline
 \begin{center}
 	\begin{equation}\label{eq:rettacalibrazione}
 	x_riferimento=\alpha x_misurata+ \beta
@@ -148,7 +163,7 @@ Lo strumento utilizzato per registrare le misure di posizione (Sonar) deve esser
 
 %=============== MISURA DI G-Mu==========%
 \subsection{Misura di $g\mu_d$.}
-Mantenendo il piano sempre in posizione orizzontale sono state relaizzate misure ripetute di posizione imprimendo al carrello una piccola velocit√† iniziale. Poich√® l'angolo di inclinazione √® nullo ($\theta=0$), dopo aver ottenuto i valori dell'accelerazione in diversi istanti attraverso il programma Data Studio, √® possibile ricavare diverse stime di $g\mu_d$. 
+Mantenendo il piano sempre in posizione orizzontale sono state relaizzate misure ripetute di posizione imprimendo al carrello una piccola velocit‡ iniziale. PoichË l'angolo di inclinazione Ë nullo ($\theta=0$), dopo aver ottenuto i valori dell'accelerazione in diversi istanti attraverso il programma Data Studio, Ë possibile ricavare diverse stime di $g\mu_d$. 
 \begin{center}
 	\begin{equation}\label{eq:accelerazione1}
 	a_x=g\mu_d
@@ -156,19 +171,19 @@ Mantenendo il piano sempre in posizione orizzontale sono state relaizzate misure
 \end{center}
 
 %=================MISURA G ANGOLO SPECIFICO=============%
-\subsection{misura dell'accelerazione di gravit√† con la misura dell'accelerazione ad un angolo specifico.}
-Posizionando la guida inclinata ad un angolo $\theta$ abbstanza grande, in modo da ottenere una maggiore precisione, sono state relaizzate, sempre grazie al programma Data Studio, numerose stime (10 misurazioni da 10 secondi) dell'accelerazione mantenendo l'angolo $\theta$ fisso. Combinando i risultati ottenuti con le stime precedenti di $g\mu_d$ √® possibile ottenere una stima delL'accelerazione di gravit√† $g$. 
+\subsection{misura dell'accelerazione di gravit‡ con la misura dell'accelerazione ad un angolo specifico.}
+Posizionando la guida inclinata ad un angolo $\theta$ abbstanza grande, in modo da ottenere una maggiore precisione, sono state relaizzate, sempre grazie al programma Data Studio, numerose stime (10 misurazioni da 10 secondi) dell'accelerazione mantenendo l'angolo $\theta$ fisso. Combinando i risultati ottenuti con le stime precedenti di $g\mu_d$ Ë possibile ottenere una stima delL'accelerazione di gravit‡ $g$. 
 
 
 %=============== ANGOLO VARIABILE========%
-\subsection{Determinazione simultanea dell'accelerazione di gravit√† e del coeficiente di attrito variando l'angolo del piano inclinato.}
-Variado l'angolo di inclinazione del piano, effettuiamo una misura di posizione da $10$ secondi per ogni angolo scelto. Facendo un grafico dell'accelerazione in funzione dell'angolo di inclinazione √® possibile estrarre l'accelerazione di gravit√† dal coeficente angolare della retta che meglio approssima i punti. 
+\subsection{Determinazione simultanea dell'accelerazione di gravit‡ e del coeficiente di attrito variando l'angolo del piano inclinato.}
+Variado l'angolo di inclinazione del piano, effettuiamo una misura di posizione da $10$ secondi per ogni angolo scelto. Facendo un grafico dell'accelerazione in funzione dell'angolo di inclinazione Ë possibile estrarre l'accelerazione di gravit‡ dal coeficente angolare della retta che meglio approssima i punti. 
 
 
 
 %============ SU E GIU' ========%
-\subsection{Determinazione dell'accelerazione di gravit√† dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente.}
-Nell'ultima misurazione invece, tenendo l'angolo fisso a circa $0.05$ rad √® stata misurata l'accelerazione sia nel tratto ascendente che discendente fino alla fine del moto del carrello. Dalla differenza delle due accelerazioni possiamo realizzare una stima di $g$
+\subsection{Determinazione dell'accelerazione di gravit‡ dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente.}
+Nell'ultima misurazione invece, tenendo l'angolo fisso a circa $0.05$ rad Ë stata misurata l'accelerazione sia nel tratto ascendente che discendente fino alla fine del moto del carrello. Dalla differenza delle due accelerazioni possiamo realizzare una stima di $g$
 	\begin{equation}
 	ax_x1= g(\theta + \mu_d) 
 	\end{equation} (ascendente)\newline
