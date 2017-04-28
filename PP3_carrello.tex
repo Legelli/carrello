@@ -60,7 +60,7 @@ In questa relazione verranno usate le seguenti convenzioni:
 	\item sarà usato il punto [ $.$ ] come separatore decimale;
 	\item l'approssimazione decimale della cifra $5$ sarà fatta per eccesso;
 	\item al fine di migliorare la qualità dell'elaborazione dei dati, ogni grafico/istogramma prodotto a mano su carta millimetrata sarà riportato insieme al suo equivalente prodotto attraverso un software di analisi dati\footnote{In questo contesto i dati sono stati elaborati con il software di analisi \emph{R}.};
-	\item al fine di snellire la relazione e migliorarne la leggibilità, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati. %
+	\item al fine di snellire la relazione e migliorarne la leggibilità, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati; data la mole di misure effettuate con il sonar spesso saranno riportate solo le sintesi dei dati.
 \end{enumerate}
 Inoltre, si farà riferimento alle seguenti formule:
 \begin{enumerate}
@@ -81,54 +81,42 @@ Inoltre, si farà riferimento alle seguenti formule:
 %===============SCOPO E DESCRIZIONE DELL'ESPERIENZA==============%
 \section{Scopo e descrizione dell'esperienza}
 \label{sec:description}
-Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale è soggetto a diverse forze. Proiettando tali forze lungo gli assi le tre componenti che intervengono sono:
+Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale è soggetto a diverse forze. Proiettando tali forze lungo un asse parallelo e uno perpendicolare allo spostamento, le tre componenti che intervengono sono:
 \begin{itemize}
-	\item  forza peso che accelera il carrello:
-		\begin{center}  
-			\begin{equation}\label{eq:forzapeso}
- 			 F_p=mgsin\theta
-			\end{equation} 
-   		\end{center} 
-   	\item la reazione vincolare del piano bilanciata dalla componente perpendicolare della forza peso 			
-		\begin{center}
-		    \begin{equation}\label{eq:reazionevincolare}
-			N=mgcos\theta
-			\end{equation}
-		\end{center}
-	\item la forza di attrito dinamico tra il carrello e il piano inclinato, con verso opposto al moto e che decelera il carrello:
-		\begin{center}
-			\begin{equation}\label{eq:forzaattrito}
-			F_a=N\mu_d
-			\end{equation}
-		\end{center}
+	\item la forza peso che accelera il carrello
+		\begin{equation}\label{eq:forzapeso}
+ 			 F_p=m g \sin\theta;
+		\end{equation} 
+   	\item la reazione vincolare del piano, che bilancia componente perpendicolare della forza peso 			
+	    \begin{equation}\label{eq:reazionevincolare}
+			N=mg \cos \theta;
+		\end{equation}
+	\item la forza di attrito dinamico tra il carrello e il piano inclinato, con verso opposto al moto e che decelera il carrello
+		\begin{equation}\label{eq:forzaattrito}
+			F_a=N\mu_d.
+		\end{equation}
 \end{itemize}
-Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del sistema è data da: 
-\begin{center}
-	\begin{equation}\label{eq:accelerazionetot}
-	a_x=g(sin\theta \pm \mu_d cos\theta)
-	\end{equation}
-\end{center}
-Dove il segno dipende dalla direzione dell'accelerazione (negativo nel caso discendente, altriementi positivo). Nel caso di piccoli angoli ($\theta \approx 0.18 rad$) si possono approssimare:
-\begin{center}
-	\begin{equation}\label{eq:approssimazione}
-	sin\theta \approx \theta ; cos\theta \approx 1
-	\end{equation}
-\end{center}
-Per cui la formula per l'accelerazione totale diventa:
-\begin{center}
-	\begin{equation}\label{eq:accelerazionepiccoliangoli}
+Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del carrello è data da: 
+\begin{equation}\label{eq:accelerazionetot}
+	a_x=g(\sin\theta \pm \mu_d \cos\theta)
+\end{equation}
+dove il segno dipende dalla direzione dell'accelerazione (negativo nel caso discendente, altrimenti positivo). Nel caso di piccoli angoli ($\theta \le \SI{0.18}{rad}$) si possono approssimare:
+\begin{equation}\label{eq:approssimazione}
+	\sin\theta \approx \theta ;\qquad  \cos\theta \approx 1 \notag
+\end{equation}
+per cui la formula (\ref{eq:accelerazionetot}) per l'accelerazione totale diventa:
+\begin{equation}\label{eq:accelerazionepiccoliangoli}
 	a_x=g(\theta \pm \mu_d).
-	\end{equation}
-\end{center}
+\end{equation}
 
 In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, daremo diverse stime di $\mu_d$ e di $g$ ottenute con più modalità:
 
-\begin{itemize}
-	\item misura di $g\mu_d$ con il piano orizzontale imprimendo una piccola velocità iniziale 
-	\item misura di $g$ con un angolo fisso specifico 
-	\item misura simultanea di $g$ e $\mu_d$ con angolo di inclinazione variabile 
-	\item misura di $g$ ottenuta misurando tutto il moto sia nel tratto ascendente che nel tratto discendente
-\end{itemize}
+\begin{enumerate}
+	\item misura del prodotto $g \cdot \mu_d$ con il piano in orizzontale, imprimendo una velocità iniziale;
+	\item misura di $g$ con un angolo fisso specifico;
+	\item misura simultanea di $g$ e $\mu_d$ variando l'angolo di inclinazione;
+	\item misura di $g$ ottenuta misurando tutto il moto sia nel tratto discendente che in quello ascendente.
+\end{enumerate}
 	
 %================APPARATO SPERIMENTALE======================%		
 \section{Apparato Sperimentale}
@@ -136,12 +124,12 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 \subsection{Strumenti}
 \label{subsec:strumenti}
 \begin{itemize}
-\item carrello;
-\item Guida inclinata lunga circa due metri con scala graduata [divisione:1mm, incertezza:];
-\item Sonar in grado di misurare la posizione del carrello in una dimensione a tempi diversi, interfacciato con il PC;
-\item Programma Data Studio per calcolare derivando in modo numerico velocità e accelerazione;
-\item Sqadra per misurare l'altezza del carrello [divisione:1mm, incertezza:];
-\item livella.
+	\item Guida inclinata lunga circa due metri con scala graduata [divisione: \SI{1}{mm}, incertezza:];
+	\item sonar in grado di misurare la distanza del carrello a tempi diversi [frequenza: \SI{20}{Hz}];
+	\item software \emph{Data Studio} per raccogliere ed elaborare in modo preliminare le misure del sonar;
+	\item squadra [divisione: \SI{1}{mm}, incertezza:];
+	\item carrello;
+	\item livella digitale [digit: \SI{1}{°}].
 \end{itemize}
 
 %==============SEQUENZA OPERAZIONI SPERIMENTALI============%
@@ -149,17 +137,49 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 
 \subsection{Verifica degli strumenti.}
 \label{subsec:verifica}
-Poiché il tavolo su cui poggiava la guida era inclinato di circa -1 grado, l'errore è stato corretto ottenendo così un piano perfettamente orizzontale necessario per lo svolgimento delle prime misurazioni. Il sonar è stato invece calibrato seguendo le modalità indicate, come meglio approfondito nella sezione ~\ref{subsec:calibrazione delle misure di lunghezza dello stumento}.
+La guida risultava inclinata di circa \SI{-1}{°} quando i piedi erano completamente abbassati, la causa principale è attribuibile ad un'inclinazione della pavimentazione che, misurata, risultava anch'essa di circa \SI{-1}{°}. %, l'errore è stato corretto ottenendo così un piano orizzontale necessario per lo svolgimento delle prime misurazioni.
+Oltretutto, la guida non era perfettamente piana bensì leggermente a catenaria, infossata nel centro (probabilmente a causa di un'assenza di supporti intermedi); non è stato possibile risolvere l'errore (si sarebbe dovuta cambiare la struttura della guida).
+Il sonar è stato invece calibrato seguendo le modalità indicate, come meglio approfondito nella sezione~\ref{subsec:Calibrazione}.
+
+L'attrito tra il carrello e la guida era poco efficace, questo ha reso evidenti i difetti di costruzione della guida stessa sul moto del carrello.
+
+Il software \emph{Data Studio}, necessario per interagire con il sonar, permette di scegliere arbitrariamente il numero di cifre significative con le quali memorizzare i dati, per cui l'ampiezza del digit non è ben definita: assumiamo come incertezza sulle misure di posizione esclusivamente quella di tipo \textbf{A}.
 
 %================ CALIBRAZIONE ==================%
-\subsection{calibrazione delle misure di lunghezza dello strumento.}
-Lo strumento utilizzato per registrare le misure di posizione (Sonar) deve essere calibrato. Per fare ciò è necessario posizionare il carrello sulla guida orizzontale e confrontare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico è possibile estrapolare la retta di calibrazione.\newline
-\begin{center}
-	\begin{equation}\label{eq:rettacalibrazione}
-	x_riferimento=\alpha x_misurata+ \beta
-	\end{equation}
-\end{center}
+\subsection{Calibrazione delle misure di distanza}
+\label{subsec:Calibrazione}
+Lo strumento utilizzato per registrare le misure di posizione (sonar) deve essere calibrato: esso è tendenzialmente soggetto ad errori di offset e di scala (la velocità del suono dipende dai fattori ambientali). Per quanto detto nella sezione \ref{sec:description} la posizione del carrello ha un'importanza solo relativa: interessandoci della sua accelerazione e non della sua posizione assoluta (equazione \ref{eq:accelerazionepiccoliangoli}), l'offset non disturba le nostre misure indirette e l'unico parametro di calibrazione significativo è quello di scala; per misurare tale coefficiente è necessario posizionare il carrello sulla guida orizzontale e confrontare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico è possibile estrapolare la retta di calibrazione, la quale è descritta da un'equazione del tipo:
+\begin{equation}\label{eq:rettacalibrazione}
+	x_{r}=\alpha x_{m} + \beta
+\end{equation}
+dove $x_r$ è la distanza di riferimento e $x_m$ quella misurata, $\alpha$ è il coefficiente di scala e $\beta$ l'offset. Le misure sono state prese lasciando il sonar attivo per circa 10 secondi ad ogni misura, per un totale quindi di 200 (\SI{20}{Hz} $\cdot$ \SI{10}{s}) misure per posizione; sul grafico \ref{fig:calibrazione} sono stati riportati i valori medi per ogni distanza con la relativa incertezza $( \delta = \sigma / \sqrt{N})$, le misure sono sintetizzate nella tabella \ref{tab:calibrazione}. Estrapolando i parametri direttori della retta, risultano:
+\begin{equation}\label{eq:parametri_calibrazione}
+	\alpha = \SI{ 1.0361 \pm 0.0029}{}, \qquad \beta = \SI{ -0.351 \pm 0.0029}{m}, %Mettere i valori effettivi
+\end{equation}
+dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con il metodo dei minimi quadrati.
 
+\begin{table}
+\caption{Misure di calibrazione}
+\label{tab:calibrazione}
+\centering
+\begin{tabular}{c|cc}
+\hline
+$x_r [\SI{}{m}]$ & $x_m [\SI{}{m}]$ & $\delta$ [\SI{}{m}] \\
+$\pm$ 0.00015 && \\
+\hline
+0.50000 & 0.52084 & 0.00012 \\
+0.60000 & 0.61273 & 0.00003 \\
+0.70000 & 0.70871 & 0.00008 \\
+0.80000 & 0.80446 & 0.00002 \\
+0.90000 & 0.89897 & 0.00007 \\
+1.00000 & 0.99997 & 0.00001 \\
+1.10000 & 1.09359 & 0.00008 \\
+1.20000 & 1.19130 & 0.00005 \\
+1.30000 & 1.29049 & 0.00005 \\
+1.40000 & 1.38738 & 0.00002 \\
+\hline
+\end{tabular}
+\end{table}
 
 %=============== MISURA DI G-Mu==========%
 \subsection{Misura di $g\mu_d$.}
@@ -204,6 +224,7 @@ Da cui facendo la differenza delle due accelerazioni otteniamo una stima di $g$.
 
 \newpage
 \section{Appendice: tabelle e grafici}
+
 
 
 \end{document}
