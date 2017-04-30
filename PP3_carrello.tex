@@ -23,7 +23,7 @@
 \setcounter{section}{-1}
 
 %========= PRIMA PAGINA ===========%
-\title{\textsc{Misura dell'accelerazione di gravità  attraverso lo studio del moto di un carrello su di un piano inclinato }}
+\title{\textsc{Misura dell'accelerazione di gravità attraverso lo studio del moto di un carrello su di un piano inclinato }}
 \author{\small{G. Galbato Muscio} \and \small{L. Gravina} \and \small{L. Graziotto} \and \small{M. Rescigno}}
 \date{}
 
@@ -156,6 +156,13 @@ dove $x_r$ è la distanza di riferimento e $\bar{x}_m$ la media di quelle misurat
 \end{equation}
 dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con il metodo dei minimi quadrati.
 
+\begin{figure}[h]
+\centering
+\caption{Misure di posizione per la calibrazione}
+\label{fig:calibrazione}
+\includegraphics[scale=0.7]{calibrazione.eps}
+\end{figure}
+
 \begin{table}
 \caption{Misure di calibrazione}
 \label{tab:calibrazione}
@@ -215,7 +222,7 @@ Le distribuzioni dei valori di $a$ ottenute sono tra di loro compatibili in quan
 
 Avendo verificato la compatibilità  delle 5 raccolte, la successiva analisi sarà  svolta sulla totalità  dei dati. 
 
-L'istogramma di figura~\ref{fig:istogramma_gmu} rappresenta la distribuzione delle accelerazioni, ad una prima analisi risulta chiaramente incompatibile con un modello gaussiano in quanto agli estremi presenta dei raggruppamenti molto discostati dai valori centrali. Queste anomalie, probabilmente legate a errori del sonar nella misura o a errori nel calcolo delle accelerazioni, possono essere eliminate permettendoci di ottenere una stima più precisa. Tali misure infatti non modificano significativamente la media ma influenzano la deviazione standard e ci conducono ad una sovrastima dell'errore statistico. 
+L'istogramma di figura~\ref{fig:istogramma_gmu} rappresenta la distribuzione delle accelerazioni, ad una prima analisi risulta chiaramente incompatibile con un modello gaussiano in quanto agli estremi presenta dei raggruppamenti molto discostati dai valori centrali. Queste anomalie, probabilmente legate a errori del sonar nella misura e ad interferenze ambientali, possono essere eliminate permettendoci di ottenere una stima più precisa. Tali misure infatti non modificano significativamente la media ma influenzano la deviazione standard e ci conducono ad una sovrastima dell'errore statistico. 
 
 Per provare che questi valori non rappresentano le code della distribuzione e sono incompatibili con il modello atteso, calcoliamo la probabilità che, data una gaussiana di media \SI{-0.045}{m/s^2} e deviazione standard \SI{0.105}{m/s^2}, si verifichino tali eventi. Questa risulta pari a $0.139$, ovvero del $13.9\%$: ci aspetteremmo per questo $53$ eventi sui $383$ totali, in confronto invece ai $39$ effettivamente osservati.
 
@@ -231,7 +238,7 @@ L'istogramma in figura \ref{fig:istogramma_gmu} riporta in blu i dati coerenti e
 \includegraphics[scale=0.7]{istogramma.eps}
 \end{figure}
 
-La stima di $g\mu_d$ sarà  quindi data dall'equazione \ref{eq:accelerazione1}, dove l'accelerazione media è ottenuta dai dati selezionati. L'errore da associare a tale misura è dato dalla propagazione delle incertezze su una forma monomia. Poichè la posizione orizzontale del carrello non è stata ottenuta misurando un angolo nullo, bensì verificando che il carrello fosse in quiete, non è necessario propagare l'incertezza sull'angolo. Il coefficiente di calibrazione e l'accelerazione sono invece affette da un'incertezza, per cui:
+La stima di $g\mu_d$ sarà  quindi data dall'equazione \ref{eq:accelerazione1}, dove l'accelerazione media è ottenuta dai dati selezionati. L'errore da associare a tale misura è dato dalla propagazione delle incertezze su una forma monomia. Il coefficiente di calibrazione e l'accelerazione sono invece affette da un'incertezza, per cui:
 \begin{equation}\label{eq:incertezzarelativa}
 \sigma_{g\mu_d} = g\mu_d\sqrt{\biggl(\frac{\sigma_\alpha}{\alpha}\biggl)^2+\biggl(\frac{\sigma_{\bar{a}}}{\bar{a}}\biggl)^2}
 \end{equation}
@@ -244,8 +251,38 @@ La migliore stima di $g\mu_d$ è quindi:
 
 
 %=================MISURA G ANGOLO SPECIFICO=============%
-\subsection{misura dell'accelerazione di gravità  con la misura dell'accelerazione ad un angolo specifico.}
-Posizionando la guida inclinata ad un angolo $\theta$ abbstanza grande, in modo da ottenere una maggiore precisione, sono state relaizzate, sempre grazie al programma Data Studio, numerose stime (10 misurazioni da 10 secondi) dell'accelerazione mantenendo l'angolo $\theta$ fisso. Combinando i risultati ottenuti con le stime precedenti di $g\mu_d$ è possibile ottenere una stima delL'accelerazione di gravità  $g$. 
+\subsection{Misura dell'accelerazione di gravità con la misura dell'accelerazione ad un angolo specifico}
+Sperimentalmente si è notato che a velocità più elevata le misure di accelerazione risultano più stabili, abbiamo quindi optato per un'inclinazione di $\theta = \SI{0,029}{rad}$: ancora nelle ipotesi delle approssimazioni trigonometriche ma sufficientemente alta per permettere una minore dispersione delle misure. 
+
+Si riportano in tabella \ref{tab:gmu_angolo_cost} le sintesi di 10 eventi; essendo questi ultimi tra di loro equivalenti ed essendo le misure tra di loro compatibili è lecito considerarli come un unico esperimento, ottenendo un'accelerazione media pari a \SI{0.187}{m/s^2} accompagnata da un'incertezza statistica di \SI{0.009}{m/s^2}.
+\begin{table}[h]
+	\caption{Accelerazioni ad angolo costante}
+	\label{tab:gmu_angolo_cost}
+	\centering
+	\begin{tabular}{ccc}
+		\hline
+	    $ \bar{a}$ [\SI{}{m/s^2}] & $ \sigma$ [\SI{}{m/s^2}] & $\sigma/\sqrt{N}$ [\SI{}{m/s^2}]\\
+		\hline
+		 0.18 & 0.16 & 0.03 \\
+		 0.18 & 0.15 & 0.03 \\
+		 0.19 & 0.09 & 0.02 \\
+		 0.19 & 0.15 & 0.03 \\
+		 0.18 & 0.15 & 0.03 \\
+		 0.18 & 0.09 & 0.02 \\
+		 0.19 & 0.19 & 0.04 \\
+		 0.19 & 0.14 & 0.03 \\
+		 0.18 & 0.15 & 0.03 \\
+		 0.20 & 0.18 & 0.04 \\
+		\hline
+	\end{tabular}
+\end{table}
+Considerando il coefficiente di calibrazione, dall'equazione (\ref{eq:accelerazionepiccoliangoli}) si ricava
+\begin{equation}\label{eq:g}
+	g= \frac{\alpha \bar{a}_m - g \mu_d}{\theta};
+\end{equation} propagando l'incertezza su quest'equazione si ha che
+\begin{equation}\label{eq:incertezza_g}
+	\delta_g = g \sqrt{\left(\frac{\delta}{\alpha \bar{a}_m - g \mu_d} \right)^2 + \left( \frac{\delta_\theta}{\theta} \right)^2 }
+\end{equation} dove 
 
 
 %=============== ANGOLO VARIABILE========%
