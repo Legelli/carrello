@@ -3,7 +3,7 @@
 
 \usepackage[latin1]{inputenc} 
 \usepackage[italian]{babel}
-\usepackage{siunitx} %Inserisce automaticamente i dati con le unit√† di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unit√† di misura})
+\usepackage{siunitx} %Inserisce automaticamente i dati con le unit‡† di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unit‡† di misura})
 \sisetup{output-decimal-marker = {.}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con il punto decimale
 \usepackage{listings} %Per citare codice informatico formattandolo correttamente
 \usepackage{amsmath}
@@ -11,8 +11,8 @@
 \usepackage{geometry}
 \usepackage{epigraph}
 \usepackage{booktabs}	%tabelle migliorate
-\usepackage{tablefootnote}	%note a pi√® di pagina in tabella
-\usepackage{threeparttable} %tabella con note a pi√® di tabella
+\usepackage{tablefootnote}	%note a piË di pagina in tabella
+\usepackage{threeparttable} %tabella con note a piË di tabella
 \usepackage{caption}	%descrizione per figure
 \captionsetup{tableposition=top,figureposition=bottom,font=small} %setup descrizione
 \usepackage{float}
@@ -23,7 +23,7 @@
 \setcounter{section}{-1}
 
 %========= PRIMA PAGINA ===========%
-\title{\textsc{Misura dell'accelerazione di gravit√† attraverso lo studio del moto di un carrello su di un piano inclinato }}
+\title{\textsc{Misura dell'accelerazione di gravit‡† attraverso lo studio del moto di un carrello su di un piano inclinato }}
 \author{\small{G. Galbato Muscio} \and \small{L. Gravina} \and \small{L. Graziotto} \and \small{M. Rescigno}}
 \date{}
 
@@ -47,7 +47,7 @@
 \hrule
 \vspace{0.5cm}
 \begin{abstract}
-	Studiando dal punto di vista cinematico il moto di un carrello lungo un piano inclinato scabro, diamo diverse stime dell'accelerazione di gravit√† $g$ e del coeficiente di attrito dinamico $\mu_d$.
+	Studiando dal punto di vista cinematico il moto di un carrello lungo un piano inclinato scabro, diamo diverse stime dell'accelerazione di gravit‡†$g$ e del coefficiente di attrito dinamico~$\mu_d$.
 \end{abstract}
 \newpage
 \tableofcontents %Indice
@@ -57,12 +57,11 @@
 \section{Convenzioni e formule}
 In questa relazione verranno usate le seguenti convenzioni:
 \begin{enumerate}
-	\item sar√† usato il punto [ $.$ ] come separatore decimale;
-	\item l'approssimazione decimale della cifra $5$ sar√† fatta per eccesso;
-	\item al fine di migliorare la qualit√† dell'elaborazione dei dati, ogni grafico/istogramma prodotto a mano su carta millimetrata sar√† riportato insieme al suo equivalente prodotto attraverso un software di analisi dati\footnote{In questo contesto i dati sono stati elaborati con il software di analisi \emph{R}.};
-	\item al fine di snellire la relazione e migliorarne la leggibilit√†, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati; data la mole di misure effettuate con il sonar spesso saranno riportate solo le sintesi dei dati.
+	\item sar‡†usato il punto [ $.$ ] come separatore decimale;
+	\item l'approssimazione decimale della cifra $5$ sar‡†fatta per eccesso;
+	\item al fine di snellire la relazione e migliorarne la leggibilit‡, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati; data la mole di misure effettuate con il sonar spesso saranno riportate solo le sintesi dei dati.
 \end{enumerate}
-Inoltre, si far√† riferimento alle seguenti formule:
+Inoltre, si far‡†riferimento alle seguenti formule:
 \begin{enumerate}
 	\item media 
 	\begin{equation}\label{eq:media}
@@ -81,13 +80,13 @@ Inoltre, si far√† riferimento alle seguenti formule:
 %===============SCOPO E DESCRIZIONE DELL'ESPERIENZA==============%
 \section{Scopo e descrizione dell'esperienza}
 \label{sec:description}
-Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale √® soggetto a diverse forze. Proiettando tali forze lungo un asse parallelo e uno perpendicolare allo spostamento, le tre componenti che intervengono sono:
+Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto all'orizzontale Ë soggetto a diverse forze. Proiettando tali forze lungo un asse parallelo e uno perpendicolare allo spostamento, le tre componenti che intervengono sono:
 \begin{itemize}
 	\item la forza peso che accelera il carrello
 		\begin{equation}\label{eq:forzapeso}
  			 F_p=m g \sin\theta;
 		\end{equation} 
-   	\item la reazione vincolare del piano, che bilancia componente perpendicolare della forza peso 			
+   	\item la reazione vincolare del piano, che bilancia la componente perpendicolare della forza peso 			
 	    \begin{equation}\label{eq:reazionevincolare}
 			N=mg \cos \theta;
 		\end{equation}
@@ -96,7 +95,7 @@ Un carrello che si muove lungo un piano inclinato di un angolo $\theta$ rispetto
 			F_a=N\mu_d.
 		\end{equation}
 \end{itemize}
-Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del carrello √® data da: 
+Dallo studio di queste forze sappiamo quindi che l'accelerazione totale del carrello Ë data da: 
 \begin{equation}\label{eq:accelerazionetot}
 	a_x=g(\sin\theta \pm \mu_d \cos\theta)
 \end{equation}
@@ -109,10 +108,10 @@ per cui la formula (\ref{eq:accelerazionetot}) per l'accelerazione totale divent
 	a_x=g(\theta \pm \mu_d).
 \end{equation}
 
-In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, daremo diverse stime di $\mu_d$ e di $g$ ottenute con pi˘ modalit‡†:
+In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, daremo diverse stime di $\mu_d$ e di $g$ ottenute mediante:
 
 \begin{enumerate}
-	\item misura del prodotto $g \cdot \mu_d$ con il piano in orizzontale, imprimendo una velocit‡† iniziale;
+	\item misura del prodotto $g \cdot \mu_d$ con il piano orizzontale, imprimendo una velocit‡†iniziale;
 	\item misura di $g$ con un angolo fisso specifico;
 	\item misura simultanea di $g$ e $\mu_d$ variando l'angolo di inclinazione;
 	\item misura di $g$ ottenuta misurando tutto il moto sia nel tratto discendente che in quello ascendente.
@@ -124,12 +123,12 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 \subsection{Strumenti}
 \label{subsec:strumenti}
 \begin{itemize}
-	\item Guida inclinata lunga circa due metri con scala graduata [divisione: \SI{1}{mm}, incertezza:];
-	\item sonar in grado di misurare la distanza del carrello a tempi diversi [frequenza: \SI{20}{Hz}];
-	\item software \emph{Data Studio} per raccogliere ed elaborare in modo preliminare le misure del sonar;
-	\item squadra [divisione: \SI{1}{mm}, incertezza:];
-	\item carrello;
-	\item livella digitale [digit: \SI{1}{∞}].
+	\item Guida inclinata con scala graduata [divisione: \SI{1}{mm}, portata\footnote{Dunque lunghezza della guida.}: \SI{2}{m}, incertezza: \SI{0.3}{mm}];
+	\item Sonar in grado di misurare la distanza del carrello a tempi diversi [frequenza di campionamento: \SI{20}{Hz}];
+	\item Software \emph{DataStudio\textsuperscript\textregistered} per raccogliere ed elaborare in modo preliminare le misure del sonar;
+	\item Squadra [divisione: \SI{1}{mm}, incertezza: \SI{0.3}{mm}];
+	\item Carrello dotato di ruote;
+	\item Livella digitale [digit: \SI{1}{∞}].
 \end{itemize}
 
 %==============SEQUENZA OPERAZIONI SPERIMENTALI============%
@@ -137,24 +136,23 @@ In questa esperienza, dopo aver calibrato lo strumento per misure di posizione, 
 
 \subsection{Verifica degli strumenti.}
 \label{subsec:verifica}
-La guida risultava inclinata di circa \SI{-1}{∞} quando i piedi erano completamente abbassati, la causa principale Ë attribuibile ad un'inclinazione della pavimentazione che, misurata, risultava anch'essa di circa \SI{-1}{∞}. %, l'errore √® stato corretto ottenendo cos√¨ un piano orizzontale necessario per lo svolgimento delle prime misurazioni.
-Oltretutto, la guida non era perfettamente piana bensÏ leggermente a catenaria, infossata nel centro (probabilmente a causa di un'assenza di supporti intermedi); non √® stato possibile risolvere l'errore (si sarebbe dovuta cambiare la struttura della guida).
-Il sonar √® stato invece calibrato seguendo le modalit‡† indicate, come meglio approfondito nella sezione~\ref{subsec:Calibrazione}.
+La guida risulta inclinata di circa \SI{-1}{∞} con i piedini completamente abbassati, la causa principale Ë attribuibile ad un'inclinazione della pavimentazione che, misurata, risulta anch'essa di circa \SI{-1}{∞}. Oltretutto, notiamo che la guida non Ë perfettamente piana bensÏ con curvatura catenaria, infossata nel centro (probabilmente a causa dell'assenza di supporti intermedi); non potendo cambiare struttura della guida, si terr‡ conto di tale configurazione nelle considerazioni sui valori ottenuti.
+Il sonar viene invece calibrato seguendo le modalit‡ indicate, come meglio approfondito nella sezione~\ref{subsec:Calibrazione}.
 
-L'attrito tra il carrello e la guida era poco efficace, questo ha reso evidenti i difetti di costruzione della guida stessa sul moto del carrello.
+Osserviamo che l'attrito volvente tra carrello e guida abbia scarsa consistenza, questo ha reso evidente l'influenza delle imperfezioni della guida stessa sul moto del carrello. Trascuriamo inoltre l'attrito viscoso tra carrello e aria circostante, che, dipendendo dalla velocit‡, influisce in misura maggiore sui risultati, come tratteremo nelle considerazioni finali.
 
-Il software \emph{Data Studio}, necessario per interagire con il sonar, permette di scegliere arbitrariamente il numero di cifre significative con le quali memorizzare i dati, per cui l'ampiezza del digit non √® ben definita: assumiamo come incertezza sulle misure di posizione esclusivamente quella di tipo \textbf{A}.
+Il software \emph{DataStudio\textsuperscript\textregistered}, necessario per interagire con il sonar, permette di scegliere arbitrariamente il numero di cifre significative con le quali memorizzare i dati, per cui l'ampiezza del digit non Ë ben definita: assumiamo come incertezza sulle misure di posizione esclusivamente quella di tipo \textbf{A}.
 
 %================ CALIBRAZIONE ==================%
 \subsection{Calibrazione delle misure di distanza}
 \label{subsec:Calibrazione}
-Lo strumento utilizzato per registrare le misure di posizione (sonar) deve essere calibrato: esso √® tendenzialmente soggetto ad errori di offset e di scala (la velocit√† del suono dipende dai fattori ambientali). Per quanto detto nella sezione \ref{sec:description} la posizione del carrello ha un'importanza solo relativa: interessandoci della sua accelerazione e non della sua posizione assoluta (equazione \ref{eq:accelerazionepiccoliangoli}), l'offset non disturba le nostre misure indirette e l'unico parametro di calibrazione significativo √® quello di scala; per misurare tale coefficiente √® necessario posizionare il carrello sulla guida orizzontale e confrontare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico √® possibile estrapolare la retta di calibrazione, la quale √® descritta da un'equazione del tipo:
+Procediamo alla calibrazione del sonar: esso Ë tendenzialmente soggetto ad errori di offset e di scala (la velocit‡† del suono\footnote{Il sonar funziona infatti emettendo onde sonore e misurando il tempo che intercorre tra l'emissione e la rilevazione dopo che esse hanno urtato il bersaglio.} dipende da fattori ambientali, come temperatura e umidit‡ relativa). Per quanto detto nella sezione \ref{sec:description} la posizione del carrello ha un'importanza solo relativa: interessandoci alla sua accelerazione e non alla sua posizione assoluta (equazione \ref{eq:accelerazionepiccoliangoli}), l'offset non incide sulle nostre misure indirette e l'unico parametro di calibrazione significativo Ë quello di scala; per misurare tale coefficiente Ë necessario posizionare il carrello sulla guida orizzontale e riportare in un grafico le distanze misurate con il sonar e quelle di riferimento misurate con la scala millimetrata fissata alla guida. Dal grafico Ë possibile estrapolare la retta di calibrazione, la quale Ë descritta da un'equazione del tipo:
 \begin{equation}\label{eq:rettacalibrazione}
-	x_{r}=\alpha x_{m} + \beta
+	x_{r}=\alpha \bar{x}_m + \beta
 \end{equation}
-dove $x_r$ √® la distanza di riferimento e $x_m$ quella misurata, $\alpha$ Ë il coefficiente di scala e $\beta$ l'offset. Le misure sono state prese lasciando il sonar attivo per circa 10 secondi ad ogni misura, per un totale quindi di 200 (\SI{20}{Hz} $\cdot$ \SI{10}{s}) misure per posizione; sul grafico \ref{fig:calibrazione} sono stati riportati i valori medi per ogni distanza con la relativa incertezza $( \delta = \sigma / \sqrt{N})$, le misure sono sintetizzate nella tabella \ref{tab:calibrazione}. Estrapolando i parametri direttori della retta, risultano:
+dove $x_r$ Ë la distanza di riferimento e $\bar{x}_m$ la media di quelle misurate dal sonar, $\alpha$ Ë il coefficiente di scala e $\beta$ l'offset. Le misure sono state prese lasciando il sonar attivo per circa 10 secondi ad ogni misura, per un totale quindi di 200 (\SI{20}{Hz} $\cdot$ \SI{10}{s}) misure per posizione; sul grafico \ref{fig:calibrazione} sono stati riportati i valori medi per ogni distanza con la relativa incertezza $( \delta = \sigma / \sqrt{N})$, le misure sono sintetizzate nella tabella \ref{tab:calibrazione}. Estrapolando i parametri direttori della retta, risulta:
 \begin{equation}\label{eq:parametri_calibrazione}
-	\alpha = \SI{ 1.0361 \pm 0.0029}{}, \qquad \beta = \SI{ -0.351 \pm 0.0029}{m}, %Mettere i valori effettivi
+	\alpha = \SI{ 1.036 \pm 0.003}{}, \qquad \beta = \SI{ -0.035 \pm 0.003}{m}, 
 \end{equation}
 dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con il metodo dei minimi quadrati.
 
@@ -162,33 +160,33 @@ dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con
 \caption{Misure di calibrazione}
 \label{tab:calibrazione}
 \centering
-\begin{tabular}{c|cc}
+\begin{tabular}{r|cc}
 \hline
-$x_r [\SI{}{m}]$ & $x_m [\SI{}{m}]$ & $\delta$ [\SI{}{m}] \\
-$\pm$ 0.00015 && \\
+$x_r [\SI{}{cm}]$ & $\bar{x}_m [\SI{}{cm}]$ & $\delta$ [\SI{}{cm}] \\
+$\pm$ 0.003 && \\
 \hline
-0.50000 & 0.52084 & 0.00012 \\
-0.60000 & 0.61273 & 0.00003 \\
-0.70000 & 0.70871 & 0.00008 \\
-0.80000 & 0.80446 & 0.00002 \\
-0.90000 & 0.89897 & 0.00007 \\
-1.00000 & 0.99997 & 0.00001 \\
-1.10000 & 1.09359 & 0.00008 \\
-1.20000 & 1.19130 & 0.00005 \\
-1.30000 & 1.29049 & 0.00005 \\
-1.40000 & 1.38738 & 0.00002 \\
+50.000 & 52.084 & 0.012 \\
+60.000 & 61.273 & 0.003 \\
+70.000 & 70.871 & 0.008 \\
+80.000 & 80.446 & 0.002 \\
+90.000 & 89.897 & 0.007 \\
+100.000 & 99.997 & 0.001 \\
+110.000 & 109.359 & 0.008 \\
+120.000 & 119.130 & 0.005 \\
+130.000 & 129.049 & 0.005 \\
+140.000 & 138.738 & 0.002 \\
 \hline
 \end{tabular}
 \end{table}
 
 %=============== MISURA DI G-Mu==========%
-\subsection{Misura di $g\mu_d$.}
-Per ricavare una prima stima del prodotto del coefficiente di attrito dinamico $\mu_d$ per l'accelerazione di gravit‡† $g$ la guida viene posizionata orizzontalmente, verificando che il carrello, in assenza di stimoli esterni, rimanga in quiete. Il carrello viene poi messo in moto imprimendo un impulso che fornisce una velocit‡† iniziale dell'ordine di \SI{0.2}{m/s}.
-Realizzando $5$ raccolte di dati otteniamo diverse stime della decelerazione del carrello dovute all'attrito. Infatti: 
+\subsection{Misura di $g\mu_d$}
+Per ricavare una prima stima del prodotto del coefficiente di attrito dinamico $\mu_d$ per l'accelerazione di gravit‡† $g$ la guida viene posizionata orizzontalmente, verificando che il carrello, in assenza di stimoli esterni, rimanga in quiete. Il carrello viene poi messo in moto imprimendo un impulso che fornisca una velocit‡†iniziale. % dell'ordine di \SI{0.2}{m/s}.
+Realizzando $5$ raccolte di dati otteniamo diverse stime della decelerazione del carrello dovuta all'attrito. Infatti: 
 \begin{equation}\label{eq:accelerazione1}
 	\alpha a=-g\mu_d
 \end{equation}
-dove con $\alpha$ indichiamo il coefficente di calibrazione stimato nella prima fase dell'esperienza. \newline
+dove con $\alpha$ indichiamo il coefficiente di calibrazione stimato nella sezione precedente. 
 Riportiamo nella tabella \ref{tab:medieacc} i valori delle medie di ciascuna raccolta con le rispettive deviazioni standard e incertezze sulle medie.
 \begin{table}
 	\caption{Medie delle 5 raccolte}
@@ -196,7 +194,7 @@ Riportiamo nella tabella \ref{tab:medieacc} i valori delle medie di ciascuna rac
 	\centering
 	\begin{tabular}{ccc}
 		\hline
-	    $ a $ & $ \sigma $ & $\sigma/\sqrt{N}$ \\
+	    $ \bar{a}$ [\SI{}{m/s^2}] & $ \sigma$ [\SI{}{m/s^2}] & $\sigma/\sqrt{N}$ [\SI{}{m/s^2}]\\
 		\hline
 		 -0.040 & 0.082 & 0.009 \\
 		 -0.043 & 0.084 & 0.010 \\
@@ -207,13 +205,24 @@ Riportiamo nella tabella \ref{tab:medieacc} i valori delle medie di ciascuna rac
 	\end{tabular}
 \end{table}
 
-Le distrinuzioni ottenute sono tra di loro compatibili in quanto differiscono al massimo per una $\sigma$. Con
-\begin{equation}\label{eq:duesigma}
-\sigma = \sqrt{\sigma_1^2 +\sigma_4^2} = \SI{0.12}{m/s^2}
-\end{equation}
-Dove con $\sigma_1$ indichiamo la deviazione standard della prima raccolta e con $\sigma_4$ la deviazione standard della quarta raccolta. Avendo verificato la compatibilit‡† delle 5 raccolte, la successiva analisi sar‡† svolta sulla totalit√† dei dati. \newline
-L'istogramma rappresenta la distribuzione delle accelerazioni, ad una prima analisi risulta chiaramente incompatibile con un modello gaussiano in quanto agli estremi presenta dei raggruppamenti molto discostanti dai valori centrali. Queste anomalie, probabilmente legate a errori del sonar nella misura o a errori nel calcolo delle accelerazioni, possono essere eliminate permettendoci di ottenere una stima pi˘ precisa. Tali misure infatti non modificano significativamente la media ma influenzano la deviazione standard e ci conducono ad una sovrastima dell'errore statistico. 
-Per provare che questi valori non rappresentano le code della distribuzione e sono incompatibili con il modello che ci aspettiamo, calcoliamo la probabilit‡† che, data una gaussiana di media (\SI{-0.046}{m/s^2}) e deviazione standard (\SI{0.048}{m/s^2} fornite dall'analisi di valori centrali, si verifichino tali eventi. Utilizzando la funzione \emph{"pnorm"} di \emph{R}, determiniamo che la probabilit‡† di ottenere un evento con valore maggiore di $0.2$ e minore di $-0.2$ √® $2.0\cdot10^-3$. Ci aspetteremmo quindi $2.0\cdot10^-3\times N_{eventi} \approx 0.06$ eventi, da confrontare con i 33 effettivamente trovati ed eliminati dall'analisi successiva. L'istogramma in figura \ref{fig:istogramma_gmu} riporta blu i dati coerenti e in grigio quelli anomali che sono stati scartati.
+Le distribuzioni dei valori di $a$ ottenute sono tra di loro compatibili in quanto differiscono al massimo per una $\sigma$. 
+
+%Con
+%\begin{equation}\label{eq:duesigma}
+%\sigma = \sqrt{\sigma_1^2 +\sigma_4^2} = \SI{0.12}{m/s^2}
+%\end{equation}
+%Dove con $\sigma_1$ indichiamo la deviazione standard della prima raccolta e con $\sigma_4$ la deviazione standard della quarta %raccolta. %POCO CHIARO
+
+Avendo verificato la compatibilit‡† delle 5 raccolte, la successiva analisi sar‡† svolta sulla totalit‡† dei dati. 
+
+L'istogramma di figura~\ref{fig:istogramma_gmu} rappresenta la distribuzione delle accelerazioni, ad una prima analisi risulta chiaramente incompatibile con un modello gaussiano in quanto agli estremi presenta dei raggruppamenti molto discostati dai valori centrali. Queste anomalie, probabilmente legate a errori del sonar nella misura o a errori nel calcolo delle accelerazioni, possono essere eliminate permettendoci di ottenere una stima pi˘ precisa. Tali misure infatti non modificano significativamente la media ma influenzano la deviazione standard e ci conducono ad una sovrastima dell'errore statistico. 
+
+Per provare che questi valori non rappresentano le code della distribuzione e sono incompatibili con il modello atteso, calcoliamo la probabilit‡†che, data una gaussiana di media \SI{-0.045}{m/s^2} e deviazione standard \SI{0.105}{m/s^2}, si verifichino tali eventi. Questa risulta pari a $0.139$, ovvero del $13.9\%$: ci aspetteremmo per questo $53$ eventi sui $383$ totali, in confronto invece ai $39$ effettivamente osservati.
+
+
+%Utilizzando la funzione \emph{"pnorm"} di \emph{R}, determiniamo che la probabilit‡† di ottenere un evento con valore maggiore di $0.2$ e minore di $-0.2$ Ë $2.0\cdot10^-3$. Ci aspetteremmo quindi $2.0\cdot10^-3\times N_{eventi} \approx 0.06$ eventi, da confrontare con i 33 effettivamente trovati ed eliminati dall'analisi successiva. 
+
+L'istogramma in figura \ref{fig:istogramma_gmu} riporta in blu i dati coerenti e in grigio quelli anomali che sono stati scartati.
 
 \begin{figure}[h]
 \centering
@@ -222,31 +231,81 @@ Per provare che questi valori non rappresentano le code della distribuzione e so
 \includegraphics[scale=0.7]{istogramma.eps}
 \end{figure}
 
-La stima di $g\mu_d$ sar‡† quindi data dall'equazione \ref{eq:accelerazione1}, dove l'accelerazione media Ë ottenuta dai dati selezionati. L'errore da associare a tale misura Ë dato dalla propagazione delle incertezze su una forma monomia. PoichË la posizione orizzontale del carrello non √® stata ottenuta misurando un angolo nullo, bensÏ verificando che il carrello fosse in quiete, non Ë necessario propagare l'incertezza sull'angolo. Il coefficiente di correlazione e l'accelerazione sono invece affette da un incertezza, per cui:
+La stima di $g\mu_d$ sar‡† quindi data dall'equazione \ref{eq:accelerazione1}, dove l'accelerazione media Ë ottenuta dai dati selezionati. L'errore da associare a tale misura Ë dato dalla propagazione delle incertezze su una forma monomia. PoichË la posizione orizzontale del carrello non Ë stata ottenuta misurando un angolo nullo, bensÏ verificando che il carrello fosse in quiete, non Ë necessario propagare l'incertezza sull'angolo. Il coefficiente di calibrazione e l'accelerazione sono invece affette da un'incertezza, per cui:
 \begin{equation}\label{eq:incertezzarelativa}
-\sigma_{g\mu_d} = g\mu_d\sqrt{\biggl(\frac{\sigma_\alpha}{\alpha}\biggl)^2+\biggl(\frac{\sigma_a}{a}\biggl)^2}
+\sigma_{g\mu_d} = g\mu_d\sqrt{\biggl(\frac{\sigma_\alpha}{\alpha}\biggl)^2+\biggl(\frac{\sigma_{\bar{a}}}{\bar{a}}\biggl)^2}
 \end{equation}
-Dove $\sigma_\alpha$ √® l'incertezza sul coefficiente di calibrazione calcolata nel paragrafo mentre $\sigma_a$ Ë l'incertezza sulla media edË® quindi data dalla deviazione standard sul numero di misure. 
-La migliore stima di $g\mu_d$ √® quindi:
+Dove $\sigma_\alpha$ Ë l'incertezza sul coefficiente di calibrazione calcolata nel paragrafo~\ref{subsec:Calibrazione} mentre $\sigma_a$ Ë l'incertezza sulla media, data dal rapporto tra deviazione standard e radice del numero di misure. 
+
+La migliore stima di $g\mu_d$ Ë quindi:
 \begin{equation}
-\boxed{\bf{g\mu_d= 0.046\pm }}
+\boxed{\textbf{$g\mu_d$ = \SI{0.051\pm 0.003}{m/s^2}}}
 \end{equation}
 
 
 %=================MISURA G ANGOLO SPECIFICO=============%
-\subsection{misura dell'accelerazione di gravit√† con la misura dell'accelerazione ad un angolo specifico.}
-Posizionando la guida inclinata ad un angolo $\theta$ abbstanza grande, in modo da ottenere una maggiore precisione, sono state relaizzate, sempre grazie al programma Data Studio, numerose stime (10 misurazioni da 10 secondi) dell'accelerazione mantenendo l'angolo $\theta$ fisso. Combinando i risultati ottenuti con le stime precedenti di $g\mu_d$ √® possibile ottenere una stima delL'accelerazione di gravit√† $g$. 
+\subsection{misura dell'accelerazione di gravit‡† con la misura dell'accelerazione ad un angolo specifico.}
+Posizionando la guida inclinata ad un angolo $\theta$ abbstanza grande, in modo da ottenere una maggiore precisione, sono state relaizzate, sempre grazie al programma Data Studio, numerose stime (10 misurazioni da 10 secondi) dell'accelerazione mantenendo l'angolo $\theta$ fisso. Combinando i risultati ottenuti con le stime precedenti di $g\mu_d$ Ë possibile ottenere una stima delL'accelerazione di gravit‡† $g$. 
 
 
 %=============== ANGOLO VARIABILE========%
-\subsection{Determinazione simultanea dell'accelerazione di gravit√† e del coeficiente di attrito variando l'angolo del piano inclinato.}
-Variado l'angolo di inclinazione del piano, effettuiamo una misura di posizione da $10$ secondi per ogni angolo scelto. Facendo un grafico dell'accelerazione in funzione dell'angolo di inclinazione √® possibile estrarre l'accelerazione di gravit√† dal coeficente angolare della retta che meglio approssima i punti. 
+\subsection{Determinazione simultanea dell'accelerazione di gravit‡†e del coefficiente di attrito variando l'angolo del piano inclinato}
+Variando l'angolo di inclinazione del piano tra $0.03$ e $0.1$ radianti, effettuiamo una misura di accelerazione lasciando scorrere il carrello dal punto pi˘ alto della guida. Riportiamo nel grafico di figura~\ref{fig:avstheta} i valori medi dell'accelerazione in funzione dell'angolo di inclinazione ed estraiamo l'accelerazione di gravit‡†e il prodotto $g\mu_d$ dal coefficiente angolare della retta interpolatrice. 
 
+Nella tabella~\ref{tab:theta_variabile} sono riportati i differenti angoli di inclinazione a cui viene posta la guida, misurati a partire dalle differenze di quota e di lunghezza, con l'equazione
+\[
+\theta = \arcsin{\frac{\Delta h}{\Delta l}}
+\] 
+e con errore calcolato con l'equazione
+\begin{align*}
+\sigma_{\theta} &= \frac{d\arcsin{\frac{\Delta h}{\Delta l}}}{d\frac{\Delta h}{\Delta l}} \cdot \delta_{\frac{\Delta h}{\Delta l}} \\
+ &= \frac{1}{\sqrt{1-\left(\frac{\Delta h}{\Delta l}\right)^2}} \cdot \frac{\Delta h}{\Delta l} \cdot \sqrt{\left(\frac{\delta_{\Delta h}}{\Delta h}\right)^2 + \left(\frac{\delta_{\Delta l}}{\Delta l}\right)^2}
+\end{align*}
+dove indichiamo con $\delta_{\Delta h} = \delta_{\Delta l} = \sqrt{2}\cdot\SI{0.03}{cm} = \SI{0.042}{cm}$ l'incertezza sulle misure di differenza di lunghezza e quota. Notiamo che l'incertezza Ë nella nostra approssimazione la medesima per ogni angolo, ed Ë compresa tra lo $0.33\%$ e l'$1\%$. Indichiamo anche i valori medi dell'accelerazione, con le rispettive deviazioni standard e deviazioni standard dalla media.
+
+\begin{figure}
+\caption{Accelerazione in funzione dell'angolo di inclinazione}
+\label{fig:avstheta}
+\centering
+\includegraphics[scale=0.6]{avstheta.eps}
+\end{figure}
+
+\begin{table}
+\caption{Misure degli angoli di inclinazione della guida}
+\label{tab:theta_variabile}
+\centering
+\begin{tabular}{cc|ccc}
+\toprule
+$\theta$ [\SI{}{rad}] & $\sigma_{\theta}$ [\SI{}{rad}] & $\bar{a}$ [\SI{}{m/s^2}] & $\sigma$ [\SI{}{m/s^2}] & $\sigma / \sqrt{N}$ [\SI{}{m/s^2}]\\
+\toprule
+0.0297 & 0.0003 & 0.20 & 0.11 & 0.02\\
+0.0385 & 0.0003 & 0.30 & 0.15 & 0.03\\
+0.0476 & 0.0003 & 0.39 & 0.13 & 0.03\\
+0.0570 & 0.0003 & 0.48 & 0.15 & 0.03\\
+0.0654 & 0.0003 & 0.54 & 0.16 & 0.04\\
+\hline
+0.0740 & 0.0003 & 0.73 & 0.31 & 0.07\\
+0.0821 & 0.0003 & 0.73 & 0.18 & 0.04\\
+0.0901 & 0.0003 & 0.84 & 0.12 & 0.03\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Osserviamo che l'errore sull'accelerazione Ë pi˘ consistente, essendo infatti compreso tra il $3,6\%$ e il $10\%$; pertanto, l'errore sull'angolo di inclinazione diventa trascurabile nella determinazione dell'incertezza sull'accelerazione di gravit‡.
+
+Interpolando con il software di analisi dati \emph{R}, otteniamo una stima dell'intercetta della retta di \emph{best fit}, che, per l'equazione~\ref{eq:accelerazionepiccoliangoli}, Ë equivalente al prodotto $g\mu_d$, pari a
+\[
+\boxed{\textbf{$g\mu_d$ = \SI{0.11\pm 0.03}{m/s^2}}};
+\]
+la stima del coefficiente angolare, e dunque dell'accelerazione di gravit‡, vale invece
+\[
+\boxed{\textbf{$g$ = \SI{10.2\pm 0.5}{m/s^2}}}.
+\]
 
 
 %============ SU E GIU' ========%
-\subsection{Determinazione dell'accelerazione di gravit√† dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente.}
-Nell'ultima misurazione invece, tenendo l'angolo fisso a circa $0.05$ rad √® stata misurata l'accelerazione sia nel tratto ascendente che discendente fino alla fine del moto del carrello. Dalla differenza delle due accelerazioni possiamo realizzare una stima di $g$
+\subsection{Determinazione dell'accelerazione di gravit‡† dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente.}
+Nell'ultima misurazione invece, tenendo l'angolo fisso a circa $0.05$ rad Ë stata misurata l'accelerazione sia nel tratto ascendente che discendente fino alla fine del moto del carrello. Dalla differenza delle due accelerazioni possiamo realizzare una stima di $g$
 	\begin{equation}
 	ax_x1= g(\theta + \mu_d) 
 	\end{equation} (ascendente)\newline
