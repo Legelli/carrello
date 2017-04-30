@@ -287,7 +287,10 @@ Considerando il coefficiente di calibrazione, dall'equazione (\ref{eq:accelerazi
 
 %=============== ANGOLO VARIABILE========%
 \subsection{Determinazione simultanea dell'accelerazione di gravità e del coefficiente di attrito variando l'angolo del piano inclinato}
-Variando l'angolo di inclinazione del piano tra $0.03$ e $0.1$ radianti, effettuiamo una misura di accelerazione lasciando scorrere il carrello dal punto più alto della guida. Riportiamo nel grafico di figura~\ref{fig:avstheta} i valori medi dell'accelerazione in funzione dell'angolo di inclinazione ed estraiamo l'accelerazione di gravità e il prodotto $g\mu_d$ dal coefficiente angolare della retta interpolatrice. 
+Variando l'angolo di inclinazione del piano tra $0.03$ e $0.1$ radianti, effettuiamo una misura di accelerazione lasciando scorrere il carrello dal punto più alto della guida. Riportiamo nel grafico di figura~\ref{fig:avstheta} i valori medi dell'accelerazione in funzione dell'angolo di inclinazione ed estraiamo l'accelerazione di gravità e il prodotto $g\mu_d$ dal coefficiente angolare della retta interpolatrice, di equazione
+\[
+a = m\theta + q.
+\]
 
 Nella tabella~\ref{tab:theta_variabile} sono riportati i differenti angoli di inclinazione a cui viene posta la guida, misurati a partire dalle differenze di quota e di lunghezza, con l'equazione
 \[
@@ -328,28 +331,85 @@ $\theta$ [\SI{}{rad}] & $\sigma_{\theta}$ [\SI{}{rad}] & $\bar{a}$ [\SI{}{m/s^2}
 \end{tabular}
 \end{table}
 
-Osserviamo che l'errore sull'accelerazione è più consistente, essendo infatti compreso tra il $3,6\%$ e il $10\%$; pertanto, l'errore sull'angolo di inclinazione diventa trascurabile nella determinazione dell'incertezza sull'accelerazione di gravità.
+Osserviamo che l'errore sull'accelerazione è più consistente, essendo infatti compreso tra il $3,6\%$ e il $10\%$; pertanto, consideriamo trascurabile l'errore sull'angolo di inclinazione, ed riporteremo sul grafico le sole barre di incertezza per le ordinate, con semilunghezza pari alla deviazione standard dalla media.
 
-Interpolando con il software di analisi dati \emph{R}, otteniamo una stima dell'intercetta della retta di \emph{best fit}, che, per l'equazione~\ref{eq:accelerazionepiccoliangoli}, è equivalente al prodotto $g\mu_d$, pari a
+Interpolando con il software di analisi dati \emph{R}, otteniamo una stima dell'intercetta della retta di \emph{best fit} pari a
 \[
-\boxed{\textbf{$g\mu_d$ = \SI{0.11\pm 0.03}{m/s^2}}};
+q = \SI{0.11\pm 0.03}{m/s^2};
 \]
-la stima del coefficiente angolare, e dunque dell'accelerazione di gravità, vale invece
+moltiplicando tale valore per il coefficiente di calibrazione estratto nella sezione~\ref{subsec:Calibrazione}, otteniamo il prodotto dell'accelerazione di gravità per il coefficiente di attrito dinamico:
 \[
-\boxed{\textbf{$g$ = \SI{10.2\pm 0.5}{m/s^2}}}.
+\boxed{\textbf{$g\mu_d$ = \SI{0.11\pm 0.03}{m/s^2}}},
 \]
-
+con incertezza propagata attraverso l'equazione
+\[
+\sigma_{g\mu_d} = \sqrt{\left(\frac{\sigma_q}{q}\right)^2+\left(\frac{\sigma_{\alpha}}{\alpha}\right)^2}.
+\]
+La stima del coefficiente angolare vale invece
+\[
+m = \SI{10.2\pm 0.5}{m/s^2};
+\]
+moltiplicando per il coefficiente di calibrazione otteniamo la stima dell'accelerazione di gravità
+\[
+\boxed{\textbf{$g$ = \SI{11.0\pm 0.6}{m/s^2}}},
+\]
+con incertezza propagata mediante l'equazione
+\[
+\sigma_{g} = \sqrt{\left(\frac{\sigma_m}{m}\right)^2+\left(\frac{\sigma_{\alpha}}{\alpha}\right)^2}.
+\]
+Osserviamo che l'incertezza di $g$ è del $5,5\%$, valore in ragionevole accordo con le incertezze relative ai valori medi dell'accelerazione individuati precedentemente. La determinazione dell'accelerazione di gravità variando l'angolo di inclinazione risulta dunque meno precisa del metodo utilizzato precedentemente: riteniamo che questo sia dovuto al ridotto numero di dati acquisiti sull'accelerazione poiché, essendo la frequenza di campionamento costante, ad un minore tempo di percorrenza della guida, con l'aumento dell'angolo, corrisponde una minore quantità di rilevazioni effettuate. La discrepanza dal valore vero di $g$, dell'ordine di $\SI{1.2}{m/s^2}$, riteniamo provenga dal non aver considerato gli effetti relativi all'attrito con l'aria, che, dipendendo dalla velocità, diventano più consistenti all'aumentare dell'inclinazione della guida. Inoltre riteniamo che l'aumento di inclinazione influisca sulla reale curvatura a catenaria della guida, che rende il moto non uniformemente accelerato.
 
 %============ SU E GIU' ========%
-\subsection{Determinazione dell'accelerazione di gravità  dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente.}
-Nell'ultima misurazione invece, tenendo l'angolo fisso a circa $0.05$ rad è stata misurata l'accelerazione sia nel tratto ascendente che discendente fino alla fine del moto del carrello. Dalla differenza delle due accelerazioni possiamo realizzare una stima di $g$
-	\begin{equation}
-	ax_x1= g(\theta + \mu_d) 
-	\end{equation} (ascendente)\newline
-	\begin{equation}
-	a_x = g(\theta - \mu_d)
-	\end{equation} (discendente)
-Da cui facendo la differenza delle due accelerazioni otteniamo una stima di $g$.
+\subsection{Determinazione dell'accelerazione di gravità  dalla differenza dell'accelerazione nel tratto discendente e quella nel tratto ascendente}
+Rileviamo innanzitutto che il carrello da noi utilizzato, a differenza di altri presenti nel laboratorio, non presenta una molla nella parte terminale, motivo per cui ci aspettiamo che l'urto con la parete terminale della guida risulti anelastico.
+Inclinando la guida ad un angolo fisso di \SI{0.0540 \pm 0.0003}{rad}, misuriamo l'accelerazione sia nel tratto discendente che in quello ascendente, percorso dal carrello dopo l'urto con la parete a fine guida. 
+	
+A titolo esemplificativo, riportiamo in figure~\ref{fig:posizione_sugiu} e~\ref{fig:accelerazione_sugiu} i valori relativi rispettivamente alla posizione e all'accelerazione del carrello misurati fino all'arresto dello stesso dopo una serie di urti contro la parete a fine guida.
+
+\begin{figure}
+\caption{Posizione del carrello in funzione del tempo}
+\label{fig:posizione_sugiu}
+\centering
+\includegraphics[scale=0.8]{posvst_sugiu.eps}
+\end{figure}
+\begin{figure}
+\caption{Accelerazione del carrello in funzione del tempo}
+\label{fig:accelerazione_sugiu}
+\centering
+\includegraphics[scale=0.8]{avst_sugiu.eps}
+\end{figure}
+
+Per l'analisi dati, prendiamo come media dell'accelerazione di discesa la media di tutti i valori dell'accelerazione relativi alla fase discendente del moto nei $10$ set di dati ottenuti, allo stesso modo di come operato nella sezione~\ref{subsec:Calibrazione}, mentre come media dell'accelerazione di salita la media di tutti i valori corrispondenti alla fase ascendente del moto immediatamente dopo il primo urto con la parete al termine della guida. Otteniamo i seguenti valori:
+\[
+a_{\text{discesa}} = \SI{0.470 \pm 0.012}{m/s^2}
+\] \[
+a_{\text{salita}} = \SI{0.466 \pm 0.008}{m/s^2},
+\]
+con incertezze date dal rapporto tra la deviazione standard e la radice del numero di dati dell'accelerazione impiegati, scelti, come già trattato, da quelli misurati ($253$ per l'accelerazione discendente e $201$ per l'accelerazione ascendente).
+L'equazione dell'accelerazione nel tratto discendente vale
+\[
+a_d = g\theta-\mu_dg,
+\]
+mentre nel tratto ascendente
+\[
+a_s = g\theta+\mu_dg,
+\]
+sommando le due equazioni ricaviamo
+\[
+g = \frac{a_d + a_s}{2\theta};
+\]
+dobbiamo ora tenere conto del coefficiente di calibrazione $\alpha$: l'accelerazione di gravità sarà dunque data da
+\begin{equation}\label{eq:g_sugiu}
+g = \frac{\alpha(a_d + a_s)}{2\theta};
+\end{equation}
+dunque la nostra stima vale
+\[
+\boxed{\textbf{$g$ = \SI{8.99 \pm 0.15}{m/s^2}}}.
+\]
+L'incertezza è stata propagata svolgendo le derivate parziali sull'equazione~\ref{eq:g_sugiu}, ovvero con
+\[
+\sigma_g = \sqrt{\left(\frac{\alpha}{2\theta}\sigma_{a_d}\right)^2+\left(\frac{\alpha}{2\theta}\sigma_{a_s}\right)^2+\left(\frac{a_d+a_s}{2\theta}\sigma_{\alpha}\right)^2+\left(2\cdot\frac{\alpha(a_d+a_s)}{4\theta^2}\right)^2}.
+\]
 
 
 
