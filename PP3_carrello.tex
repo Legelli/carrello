@@ -18,6 +18,10 @@
 \usepackage{float}
 \usepackage{esvect} %vettori
 \usepackage{longtable} %tabelle lunghe
+\usepackage[dvipsnames]{xcolor}
+\definecolor{sepia}{HTML}{80002A}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=sepia, urlcolor=black]{hyperref}
+
 
 
 \setcounter{section}{-1}
@@ -160,7 +164,7 @@ dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con
 \centering
 \caption{Misure di posizione per la calibrazione}
 \label{fig:calibrazione}
-\includegraphics[scale=0.7]{calibrazione.eps}
+\includegraphics[scale=0.55]{calibrazione.eps}
 \end{figure}
 
 \begin{table}
@@ -366,18 +370,6 @@ Inclinando la guida ad un angolo fisso di \SI{0.0540 \pm 0.0003}{rad}, misuriamo
 	
 A titolo esemplificativo, riportiamo in figure~\ref{fig:posizione_sugiu} e~\ref{fig:accelerazione_sugiu} i valori relativi rispettivamente alla posizione e all'accelerazione del carrello misurati fino all'arresto dello stesso dopo una serie di urti contro la parete a fine guida.
 
-\begin{figure}
-\caption{Posizione del carrello in funzione del tempo}
-\label{fig:posizione_sugiu}
-\centering
-\includegraphics[scale=0.8]{posvst_sugiu.eps}
-\end{figure}
-\begin{figure}
-\caption{Accelerazione del carrello in funzione del tempo}
-\label{fig:accelerazione_sugiu}
-\centering
-\includegraphics[scale=0.8]{avst_sugiu.eps}
-\end{figure}
 
 Per l'analisi dati, prendiamo come media dell'accelerazione di discesa la media di tutti i valori dell'accelerazione relativi alla fase discendente del moto nei $10$ set di dati ottenuti, allo stesso modo di come operato nella sezione~\ref{subsec:Calibrazione}, mentre come media dell'accelerazione di salita la media di tutti i valori corrispondenti alla fase ascendente del moto immediatamente dopo il primo urto con la parete al termine della guida. Otteniamo i seguenti valori:
 \[
@@ -410,8 +402,34 @@ L'incertezza è stata propagata svolgendo le derivate parziali sull'equazione~\re
 \[
 \sigma_g = \sqrt{\left(\frac{\alpha}{2\theta}\sigma_{a_d}\right)^2+\left(\frac{\alpha}{2\theta}\sigma_{a_s}\right)^2+\left(\frac{a_d+a_s}{2\theta}\sigma_{\alpha}\right)^2+\left(2\cdot\frac{\alpha(a_d+a_s)}{4\theta^2}\right)^2}.
 \]
+Osserviamo che l'incertezza ammonta all'$1,7\%$ del valore calcolato, dunque questo metodo risulta più preciso di quello condotto variando l'angolo di inclinazione della guida: riteniamo che questo sia dovuto alla maggiore quantità di dati utilizzati per il calcolo delle accelerazioni medie. La discrepanza, dell'ordine di $\SI{0.82}{m/s^2}$, riteniamo provenga dagli effetti relativi ad errori di rilevazione dell'accelerazione nel momento dell'urto, in quanto nel modello teorico utilizzato abbiamo approssimato il carrello con un punto materiale.
 
+\subsection{Misura del coefficiente di restituzione dell'urto del carrello con il sostegno}
+Il coefficiente di restituzione dell'urto è definito come la radice del rapporto tra l'energia cinetica posseduta dal carrello dopo l'urto e quella prima dell'urto, ossia
+\[
+\epsilon = \sqrt{\frac{K_f}{K_0}},
+\]
+dunque
+\[
+\epsilon = \left\vert\frac{v_f}{v_0}\right\vert;
+\]
+poiché calcoliamo il rapporto tra velocità, il coefficiente di calibrazione, che moltiplica entrambi i valori medi, si semplifica, e dunque non ne terremo conto nella propagazione delle incertezze.
 
+Come valore medio della velocità, sia per quella prima dell'urto che per quella dopo l'urto, scegliamo il valore medio dei tre valori precedenti l'urto e seguenti l'urto presi da ognuno dei $10$ set di misure. Otteniamo
+\[
+\bar{v}_f = \SI{ -0.44 \pm 0.01}{m/s}
+\] \[
+\bar{v}_0 = \SI{1.206 \pm 0.005}{m/s},
+\]
+il cui rapporto, e dunque il coefficiente di restituzione, vale:
+\[
+\boxed{\textbf{$\epsilon$ = \SI{0.366 \pm 0.008}{}}};
+\]
+l'incertezza su questo valore è stata propagata con l'equazione
+\[
+\sigma_{\epsilon} = \epsilon\cdot\sqrt{\left(\frac{\sigma_{v_f}}{v_f}\right)^2 + \left(\frac{\sigma_{v_0}}{v_0}\right)^2}.
+\]
+Da questo valore deduciamo che il $13.4\%$ ($\epsilon^2$) dell'energia cinetica si conserva dopo l'urto con la parete a fine guida, segno che l'urto è fortemente anelastico. L'incertezza su tale valore è dell'ordine di $2.2\%$, dovuta principalmente al numero ridotto ($30$) di misure della velocità prima e dopo l'urto. A titolo esemplificativo riportiamo in figura~\ref{fig:velocita_sugiu} il grafico delle velocità per lo stesso set di dati presentato nella sezione precedente.
 
 
 
@@ -424,6 +442,109 @@ L'incertezza è stata propagata svolgendo le derivate parziali sull'equazione~\re
 \newpage
 \section{Appendice: tabelle e grafici}
 
+\begin{figure}[h]
+\caption{Posizione del carrello in funzione del tempo}
+\label{fig:posizione_sugiu}
+\centering
+\includegraphics[scale=0.75]{posvst_sugiu.eps}
+\end{figure}
+
+\begin{figure}[h]
+\caption{Accelerazione del carrello in funzione del tempo}
+\label{fig:accelerazione_sugiu}
+\centering
+\includegraphics[scale=0.75]{avst_sugiu.eps}
+\end{figure}
+
+\begin{figure}[h]
+\caption{Velocità del carrello in funzione del tempo}
+\label{fig:velocita_sugiu}
+\centering
+\includegraphics[scale=0.75]{vvst_sugiu.eps}
+\end{figure}
+
+\begin{table}
+\begin{minipage}{0.5\textwidth}
+\centering
+\begin{tabular}{cc}
+  \toprule
+ & $v_0$ [\SI{}{m/s}]\\ 
+ & $(\pm 0.03)$ \\
+  \hline
+	& 1.19 \\ 
+  & 1.20 \\ 
+   & 1.18 \\ 
+   & 1.20 \\ 
+  5 & 1.24 \\ 
+   & 1.24 \\ 
+   & 1.20 \\ 
+   & 1.20 \\ 
+   & 1.21 \\ 
+  10 & 1.21 \\ 
+  & 1.25 \\ 
+   & 1.29 \\ 
+   & 1.18 \\ 
+   & 1.21 \\ 
+  15 & 1.24 \\ 
+   & 1.21 \\ 
+   & 1.23 \\ 
+   & 1.24 \\ 
+   & 1.16 \\ 
+  20 & 1.18 \\ 
+   & 1.22 \\ 
+   & 1.16 \\ 
+   & 1.19 \\ 
+   & 1.19 \\ 
+  25 & 1.18 \\ 
+   & 1.21 \\ 
+   & 1.24 \\ 
+   & 1.17 \\ 
+   & 1.18 \\ 
+  30 & 1.20 \\ 
+   \bottomrule
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\centering
+\begin{tabular}{cc}
+  \toprule
+ & $v_f$ [\SI{}{m/s}]\\
+ & $(\pm 0.05)$ \\
+ \hline
+ & -0.46 \\ 
+ & -0.42 \\ 
+ & -0.45 \\ 
+ & -0.43 \\ 
+  5 & -0.40 \\ 
+ & -0.50 \\ 
+ & -0.45 \\ 
+ & -0.44 \\ 
+ & -0.31 \\ 
+  10 & -0.51 \\ 
+ & -0.44 \\ 
+ & -0.53 \\ 
+ & -0.46 \\ 
+ & -0.42 \\ 
+  15 & -0.54 \\ 
+ & -0.46 \\ 
+ & -0.44 \\ 
+ & -0.49 \\ 
+ & -0.47 \\ 
+  20 & -0.44 \\ 
+ & -0.53 \\ 
+ & -0.45 \\ 
+ & -0.42 \\ 
+ & -0.33 \\ 
+ 25 & -0.39 \\ 
+  & -0.36 \\ 
+  & -0.47 \\ 
+  & -0.44 \\ 
+ & -0.41 \\ 
+  30 & -0.38 \\ 
+   \bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
 
 
 \end{document}
