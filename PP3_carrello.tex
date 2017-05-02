@@ -63,7 +63,7 @@ In questa relazione verranno usate le seguenti convenzioni:
 \begin{enumerate}
 	\item sarà usato il punto [ $.$ ] come separatore decimale;
 	\item l'approssimazione decimale della cifra $5$ sarà fatta per eccesso;
-	\item al fine di snellire la relazione e migliorarne la leggibilità, riporteremo nel corpo del documento solamente le tabelle riepilogative e dedicheremo un'appendice finale alle tabelle contenenti tutte le singole misure e i singoli risultati; data la mole di misure effettuate con il sonar spesso saranno riportate solo le sintesi dei dati.
+	\item al fine di snellire la relazione e migliorarne la leggibilità, riporteremo nel corpo del documento solamente le tabelle riepilogative e alcuni grafici, e dedicheremo un'appendice finale alle tabelle e ai grafici più dettagliati; data la mole di misure effettuate con il sonar spesso saranno riportate solo le sintesi dei dati.
 \end{enumerate}
 Inoltre, si farà riferimento alle seguenti formule:
 \begin{enumerate}
@@ -158,7 +158,7 @@ dove $x_r$ è la distanza di riferimento e $\bar{x}_m$ la media di quelle misurat
 \begin{equation}\label{eq:parametri_calibrazione}
 	\alpha = \SI{ 1.036 \pm 0.003}{}, \qquad \beta = \SI{ -0.035 \pm 0.003}{m}, 
 \end{equation}
-dove le incertezze sono state prodotte insieme ai parametri dal software $R$ con il metodo dei minimi quadrati.
+dove le incertezze sono state prodotte insieme ai parametri dal software $R$.
 
 \begin{figure}[h]
 \centering
@@ -192,7 +192,7 @@ $\pm$ 0.003 && \\
 
 %=============== MISURA DI G-Mu==========%
 \subsection{Misura di $g\mu_d$}\label{subsec:g_mu}
-Per ricavare una prima stima del prodotto del coefficiente di attrito dinamico $\mu_d$ per l'accelerazione di gravità  $g$ la guida viene posizionata orizzontalmente, verificando che il carrello, in assenza di stimoli esterni, rimanga in quiete. Il carrello viene poi messo in moto imprimendo un impulso che fornisca una velocità iniziale. % dell'ordine di \SI{0.2}{m/s}.
+Per ricavare una prima stima del prodotto del coefficiente di attrito dinamico $\mu_d$ per l'accelerazione di gravità $g$ la guida viene posizionata orizzontalmente, verificando che il carrello, in assenza di stimoli esterni, rimanga in quiete. Il carrello viene poi messo in moto imprimendo un impulso che fornisca una velocità iniziale. % dell'ordine di \SI{0.2}{m/s}.
 Realizzando $5$ raccolte di dati otteniamo diverse stime della decelerazione del carrello dovuta all'attrito. Infatti: 
 \begin{equation}\label{eq:accelerazione1}
 	\alpha a=-g\mu_d
@@ -246,17 +246,18 @@ La stima di $g\mu_d$ sarà  quindi data dall'equazione \ref{eq:accelerazione1}, d
 \begin{equation}\label{eq:incertezzarelativa}
 \sigma_{g\mu_d} = g\mu_d\sqrt{\biggl(\frac{\sigma_\alpha}{\alpha}\biggl)^2+\biggl(\frac{\sigma_{\bar{a}}}{\bar{a}}\biggl)^2}
 \end{equation}
-Dove $\sigma_\alpha$ è l'incertezza sul coefficiente di calibrazione calcolata nel paragrafo~\ref{subsec:Calibrazione} mentre $\sigma_a$ è l'incertezza sulla media, data dal rapporto tra deviazione standard e radice del numero di misure. 
+Dove $\sigma_\alpha$ è l'incertezza sul coefficiente di calibrazione calcolata nel paragrafo~\ref{subsec:Calibrazione} mentre $\sigma_{\bar{a}}$ è l'incertezza sulla media, data dal rapporto tra deviazione standard e radice del numero di misure. 
 
 La migliore stima di $g\mu_d$ è quindi:
 \begin{equation}
-\boxed{\textbf{$g\mu_d$ = \SI{0.051\pm 0.003}{m/s^2}}}
+\boxed{\textbf{$g\mu_d$ = \SI{-0.049\pm 0.002}{m/s^2}}},
 \end{equation}
+con segno negativo in questo caso per indicare che ha verso contrario al moto.
 
 
 %=================MISURA G ANGOLO SPECIFICO=============%
 \subsection{Misura dell'accelerazione di gravità con la misura dell'accelerazione ad un angolo specifico}
-Sperimentalmente si è notato che a velocità più elevata le misure di accelerazione risultano più stabili\footnote{L'evidenza sarà discussa nella sezione \ref{sec:considerazioni_finali}.}, abbiamo quindi optato per un'inclinazione di $\theta = \SI{0,029}{rad}$, ancora nelle ipotesi delle approssimazioni trigonometriche ma sufficientemente alta per permettere una minore dispersione delle misure. 
+Sperimentalmente si è notato che a velocità più elevata le misure di accelerazione risultano più stabili\footnote{L'evidenza sarà discussa nella sezione \ref{sec:considerazioni_finali}.}, abbiamo quindi optato per un'inclinazione di $\theta = \SI{0,0288 \pm 0.0003}{rad}$, ancora nelle ipotesi delle approssimazioni trigonometriche ma sufficientemente alta per permettere una minore dispersione delle misure. 
 
 Si riportano in tabella \ref{tab:gmu_angolo_cost} le sintesi di 10 eventi; essendo questi ultimi tra di loro equivalenti ed essendo le misure tra di loro compatibili è lecito considerarli come un unico esperimento, ottenendo un'accelerazione media pari a \SI{0.187}{m/s^2} accompagnata da un'incertezza statistica di \SI{0.009}{m/s^2}.
 \begin{table}
@@ -280,7 +281,14 @@ Si riportano in tabella \ref{tab:gmu_angolo_cost} le sintesi di 10 eventi; essen
 		\hline
 	\end{tabular}
 \end{table}
-Nell'istogramma \ref{fig:istogramma_g_fisso} è riportata la distribuzione delle accelerazioni misurate ad angolo fisso, come è facile notare la distribuzione \emph{normale} centrale, quella più significativa, è accompagnata nelle code da accumuli di eventi statisticamente incompatibili: tali eventi (minori di \SI{0.0}{m/s^2} e maggiori di \SI{0.4}{m/s^2}) non sono stati considerati ai fini dell'inferenza del \emph{valore vero}.
+Nell'istogramma di figura~\ref{fig:istogramma_g_fisso} è riportata la distribuzione delle accelerazioni misurate ad angolo fisso, come è facile notare la distribuzione \emph{normale} centrale, quella più significativa, è accompagnata nelle code da accumuli di eventi statisticamente incompatibili: tali eventi (minori di \SI{0.0}{m/s^2} e maggiori di \SI{0.4}{m/s^2}) non sono stati considerati ai fini dell'inferenza del \emph{valore vero}.
+
+\begin{figure}
+\caption{Istogramma delle accelerazioni ad angolo $\theta$}
+\label{fig:istogramma_g_fisso}
+\centering
+\includegraphics[scale=0.6]{grafico_5,4.eps}
+\end{figure}
 
 Avendo già calcolato $g \cdot \mu_d$ nella sezione \ref{subsec:g_mu} possiamo ricavare entrambi i valori risolvendo il sistema
 \[
@@ -289,7 +297,7 @@ Avendo già calcolato $g \cdot \mu_d$ nella sezione \ref{subsec:g_mu} possiamo ri
 \begin{equation}\label{eq:g}
 	g = \frac{ \alpha }{\theta} \left( \bar{a}_m^{(1)} + \bar{a}_m^{(2)} \right) = \vec{f} \left(\alpha, \theta, \bar{a}_m^{(1)}, \bar{a}_m^{(2)}\right),
 \end{equation}
-dove $\bar{a}_m^{(1)}$ e $\bar{a}_m^{(2)}$ sono rispettivamente le accelerazioni calcolate ad angolo nullo e ad angolo pari a \SI{0.029}{rad}. Propagando l'incertezza su quest'ultima relazione otteniamo
+dove $\bar{a}_m^{(1)}$ e $\bar{a}_m^{(2)}$ sono rispettivamente le accelerazioni calcolate ad angolo nullo e ad angolo pari a $\theta$. Propagando l'incertezza su quest'ultima relazione otteniamo
 \begin{equation}\label{eq:delta_g}
 	\delta_g^2 = \left( \frac{\partial \vec{f}}{\partial \alpha} \right)^2 \delta_{\alpha}^2 + \left( \frac{\partial \vec{f}}{\partial \theta} \right)^2 \delta_{\theta}^2 + \left( \frac{\partial \vec{f}}{\partial \bar{a}_m^{(1)}} \right)^2 \delta_{\bar{a}_m^{(1)}}^2 + \left( \frac{\partial \vec{f}}{\partial \bar{a}_m^{(2)}} \right)^2 \delta_{\bar{a}_m^{(2)}}^2 
 \end{equation} dove le derivate parziali esplicite sono
@@ -311,7 +319,7 @@ Svolgendo i calcoli arriviamo alla nostra migliore stima dell'accelerazione di g
 $ = \SI{8.4\pm 0.4}{m/s^2}}}.
 \end{equation}
 
-Su tale stima l'incertezza è del \SI{4.8}{\%}, il risultato ha quindi una discreta qualità. La scelta di ricavare l'equazione (\ref{eq:g}) in funzione di $\bar{a}_m^{(1)}$ invece che direttamente $g \mu_d$ (cosa che avrebbe semplificato i conti, in quanto ne sarebbe uscita un'equazione in tre incognite) è giustificata dal fatto che $g$ è evidentemente correlata con $g \mu_d$, il che avrebbe implicato un ulteriore termine correttivo di correlazione nella propagazione delle incertezze; ricavando una soluzione indipendente da $g \mu_d$ abbiamo potuto evitare di stimare quel termine. 
+Su tale stima l'incertezza è del \SI{4.8}{\%}. La scelta di ricavare l'equazione (\ref{eq:g}) in funzione di $\bar{a}_m^{(1)}$ invece che direttamente $g \mu_d$ (cosa che avrebbe semplificato i conti, in quanto ne sarebbe uscita un'equazione in tre incognite) è giustificata dal fatto che $g$ è evidentemente correlata con $g \mu_d$, il che avrebbe implicato un ulteriore termine correttivo di correlazione nella propagazione delle incertezze; ricavando una soluzione indipendente da $g \mu_d$ abbiamo potuto evitare di stimare quel termine. 
 %=============== ANGOLO VARIABILE========%
 \subsection{Determinazione simultanea dell'accelerazione di gravità e del coefficiente di attrito variando l'angolo del piano inclinato}
 Variando l'angolo di inclinazione del piano tra $0.03$ e $0.1$ radianti, effettuiamo una misura di accelerazione lasciando scorrere il carrello dal punto più alto della guida. Riportiamo nel grafico di figura~\ref{fig:avstheta} i valori medi dell'accelerazione in funzione dell'angolo di inclinazione ed estraiamo l'accelerazione di gravità e il prodotto $g\mu_d$ dal coefficiente angolare della retta interpolatrice, di equazione
@@ -338,7 +346,7 @@ dove indichiamo con $\delta_{\Delta h} = \delta_{\Delta l} = \sqrt{2}\cdot\SI{0.
 \end{figure}
 
 \begin{table}
-\caption{Misure degli angoli di inclinazione della guida}
+\caption{Misure degli angoli di inclinazione della guida e dell'accelerazione media}
 \label{tab:theta_variabile}
 \centering
 \begin{tabular}{cc|ccc}
@@ -350,7 +358,6 @@ $\theta$ [\SI{}{rad}] & $\sigma_{\theta}$ [\SI{}{rad}] & $\bar{a}$ [\SI{}{m/s^2}
 0.0476 & 0.0003 & 0.39 & 0.13 & 0.03\\
 0.0570 & 0.0003 & 0.48 & 0.15 & 0.03\\
 0.0654 & 0.0003 & 0.54 & 0.16 & 0.04\\
-\hline
 0.0740 & 0.0003 & 0.73 & 0.31 & 0.07\\
 0.0821 & 0.0003 & 0.73 & 0.18 & 0.04\\
 0.0901 & 0.0003 & 0.84 & 0.12 & 0.03\\
@@ -358,7 +365,7 @@ $\theta$ [\SI{}{rad}] & $\sigma_{\theta}$ [\SI{}{rad}] & $\bar{a}$ [\SI{}{m/s^2}
 \end{tabular}
 \end{table}
 
-Osserviamo che l'errore sull'accelerazione è più consistente, essendo infatti compreso tra il $3,6\%$ e il $10\%$; pertanto, consideriamo trascurabile l'errore sull'angolo di inclinazione, ed riporteremo sul grafico le sole barre di incertezza per le ordinate, con semilunghezza pari alla deviazione standard dalla media.
+Osserviamo che l'errore sull'accelerazione è più consistente, essendo infatti compreso tra il $3,6\%$ e il $10\%$; pertanto, consideriamo trascurabile l'errore sull'angolo di inclinazione, e riporteremo sul grafico le sole barre di incertezza per le ordinate, con semilunghezza pari alla deviazione standard dalla media.
 
 Interpolando con il software di analisi dati \emph{R}, otteniamo una stima dell'intercetta della retta di \emph{best fit} pari a
 \[
@@ -458,16 +465,26 @@ Da questo valore deduciamo che il $13.4\%$ ($\epsilon^2$) dell'energia cinetica 
 
 %==== CONSIDERAZIONI FINALI =========%
 \section{Considerazioni finali}\label{sec:considerazioni_finali}
-Della semplicità e chiarezza del modello teorico questa esperienza aveva poco: numerose approssimazioni sulla natura fisica del sistema (guida rettilinea, attrito dell'aria trascurabile, assenza di impurità lungo la traiettoria) insieme ad altre approssimazioni matematiche (le approssimazioni trigonometriche nella sezione \ref{sec:descrizione}, le accelerazioni calcolate come rapporti incrementali espliciti e non come derivate seconde) hanno portato ad una difficoltà evidente nell'inferire il \emph{valore vero} dell'accelerazione di gravità. Il metodo con cui si è ottenuto il risultato migliore è attraverso la somma (vettoriale) dell'accelerazione del carrello prima e dopo l'urto con la parete della guida: il risultato non sorprende, attraverso questo metodo diventano irrilevanti le approssimazioni trigonometriche, l'approssimazione dell'angolo e quella della forma rettilinea della guida e anche l'approssimazione matematica dell'accelerazione non istantanea, persistendo solamente alcune di minore importanza (le impurità sulla guida e l'attrito dell'aria), per cui il risultato è indubbiamente più affidabile di quelli ottenuti con altri metodi.
+Riteniamo che vi siano numerose fonti di discrepanza dal modello teorico dei dati sperimentali da noi ottenuti: le approssimazioni sulla natura fisica del sistema (guida rettilinea, attrito dell'aria trascurabile, assenza di impurità lungo la traiettoria) e alcune approssimazioni matematiche (le approssimazioni trigonometriche nella sezione \ref{sec:description}, le accelerazioni calcolate come rapporti incrementali espliciti e non come derivate seconde) hanno portato ad una difficoltà evidente nell'inferire il \emph{valore vero} dell'accelerazione di gravità. Il metodo con cui si è ottenuto il risultato migliore è attraverso la somma (vettoriale) dell'accelerazione del carrello prima e dopo l'urto con la parete della guida: il risultato non sorprende, attraverso questo metodo diventano irrilevanti le approssimazioni trigonometriche, l'approssimazione dell'angolo e quella della forma rettilinea della guida e anche l'approssimazione matematica dell'accelerazione non istantanea, persistendo solamente alcune di minore importanza (le impurità sulla guida e l'attrito dell'aria), per cui il risultato è indubbiamente più affidabile di quelli ottenuti con altri metodi. Inoltre, ricordiamo che abbiamo scelto manualmente le accelerazioni prima e dopo l'urto, nella fase ascendente, prendendole dai $10$ set di dati da noi misurati.
 
 Il coefficiente di restituzione è, inoltre, coerente con il modello, in quanto l'urto è stato molto più anelastico di quello che avremmo ottenuto se il carrello fosse stato dotato di una molla al suo estremo, la quale avrebbe assorbito l'energia molto meglio di quanto non ha fatto la spugna.
 
-Per esemplificare quanto abbiano influito le approssimazioni fisiche sulle nostre misure, riportiamo in figura \ref{fig:acc_tot} le accelerazioni complessive misurate ad angolo fisso pari a $\theta = \SI{0.029}{rad}$: come si può vedere essere oscillano molto intorno ad una media appena visibile, questo è dovuto al fatto che il coefficiente d'attrito volvente tra superficie e ruote era estremamente piccolo (intorno a \SI{0.001}{}), troppo piccolo per compensare le impurità all'interno della guida che hanno causato brusche frenate, o per compensare la curvatura a catenaria della guida che ha causato accelerazioni positive; riteniamo che con un attrito maggiore le misure sarebbero venute molto più stabili e i risultati più accurati.
+Per esemplificare quanto abbiano influito le approssimazioni fisiche sulle nostre misure, riportiamo in figura \ref{fig:acc_tot} le accelerazioni complessive misurate ad angolo fisso pari a $\theta = \SI{0,0288 \pm 0.0003}{rad}$: come si può vedere essere oscillano molto intorno ad una media appena visibile, questo è dovuto al fatto che il coefficiente d'attrito volvente tra superficie e ruote era estremamente piccolo (intorno a \SI{0.001}{}), troppo piccolo per compensare le impurità all'interno della guida che hanno causato brusche frenate, o per compensare la curvatura a catenaria della guida che ha causato accelerazioni positive; riteniamo che con un attrito maggiore le misure sarebbero venute molto più stabili e i risultati più accurati.
+
+Infine, rileviamo che otteniamo un valore del prodotto $g\mu_d$ circa doppio utilizzando il metodo con angolo variabile rispetto alla misurazione con la guida in piano. Riteniamo ancora che la diversa precisione sia dovuta alla quantità di dati raccolti, mentre l'accuratezza dagli effetti di disturbo sopra descritti, meno evidenti con accelerazioni maggiori; dunque propendiamo per un \emph{valore vero} più prossimo a quello ottenuto variando l'angolo di inclinazione.
 
 
 
 \newpage
 \section{Appendice: tabelle e grafici}
+
+
+\begin{figure}[ht]
+\caption{Misure di accelerazione con guida inclinata ad angolo $\theta$ = \SI{0,0288 \pm 0.0003}{rad}}
+\label{fig:acc_tot}
+\centering
+\includegraphics[scale=0.65]{dati_spuri.eps}
+\end{figure}
 
 \begin{figure}[h]
 \caption{Posizione del carrello in funzione del tempo}
@@ -573,6 +590,7 @@ Per esemplificare quanto abbiano influito le approssimazioni fisiche sulle nostr
 \end{tabular}
 \end{minipage}
 \end{table}
+
 
 
 \end{document}
