@@ -154,7 +154,7 @@ Procediamo alla calibrazione del sonar: esso è tendenzialmente soggetto ad error
 \begin{equation}\label{eq:rettacalibrazione}
 	x_{r}=\alpha \bar{x}_m + \beta
 \end{equation}
-dove $x_r$ è la distanza di riferimento e $\bar{x}_m$ la media di quelle misurate dal sonar, $\alpha$ è il coefficiente di scala e $\beta$ l'offset. Le misure sono state prese lasciando il sonar attivo per circa 10 secondi ad ogni misura, per un totale quindi di 200 (\SI{20}{Hz} $\cdot$ \SI{10}{s}) misure per posizione; sul grafico \ref{fig:calibrazione} sono stati riportati i valori medi per ogni distanza con la relativa incertezza $( \delta = \sigma / \sqrt{N})$, le misure sono sintetizzate nella tabella \ref{tab:calibrazione}. Estrapolando i parametri direttori della retta, risulta:
+dove $x_r$ è la distanza di riferimento e $\bar{x}_m$ la media di quelle misurate dal sonar, $\alpha$ è il coefficiente di scala e $\beta$ l'offset. Le misure sono state prese lasciando il sonar attivo per circa 10 secondi ad ogni misura, per un totale quindi di 200 (\SI{20}{Hz} $\cdot$ \SI{10}{s}) misure per posizione; sul grafico \ref{fig:calibrazione} sono stati riportati i valori medi per ogni distanza con la relativa incertezza $( \delta = \sigma / \sqrt{N})$\footnote{Le incertezze, presenti, sono troppo piccole per essere distinte ad occhio nudo.}, le misure sono sintetizzate nella tabella \ref{tab:calibrazione}. Estrapolando i parametri direttori della retta, risulta:
 \begin{equation}\label{eq:parametri_calibrazione}
 	\alpha = \SI{ 1.036 \pm 0.003}{}, \qquad \beta = \SI{ -0.035 \pm 0.003}{m}, 
 \end{equation}
@@ -164,7 +164,7 @@ dove le incertezze sono state prodotte insieme ai parametri dal software $R$.
 \centering
 \caption{Misure di posizione per la calibrazione}
 \label{fig:calibrazione}
-\includegraphics[scale=0.55]{calibrazione.eps}
+\includegraphics[scale=0.55]{ultimo.eps}
 \end{figure}
 
 \begin{table}
@@ -469,7 +469,7 @@ Riteniamo che vi siano numerose fonti di discrepanza dal modello teorico dei dat
 
 Il coefficiente di restituzione è, inoltre, coerente con il modello, in quanto l'urto è stato molto più anelastico di quello che avremmo ottenuto se il carrello fosse stato dotato di una molla al suo estremo, la quale avrebbe assorbito l'energia molto meglio di quanto non ha fatto la spugna.
 
-Per esemplificare quanto abbiano influito le approssimazioni fisiche sulle nostre misure, riportiamo in figura \ref{fig:acc_tot} le accelerazioni complessive misurate ad angolo fisso pari a $\theta = \SI{0,0288 \pm 0.0003}{rad}$: come si può vedere essere oscillano molto intorno ad una media appena visibile, questo è dovuto al fatto che il coefficiente d'attrito volvente tra superficie e ruote era estremamente piccolo (intorno a \SI{0.001}{}), troppo piccolo per compensare le impurità all'interno della guida che hanno causato brusche frenate, o per compensare la curvatura a catenaria della guida che ha causato accelerazioni positive; riteniamo che con un attrito maggiore le misure sarebbero venute molto più stabili e i risultati più accurati.
+Per esemplificare quanto abbiano influito le approssimazioni fisiche sulle nostre misure, riportiamo in figura \ref{fig:acc_tot} le accelerazioni complessive misurate ad angolo fisso pari a $\theta = \SI{0,0288 \pm 0.0003}{rad}$: come si può vedere essere oscillano molto intorno ad una media appena visibile, questo è dovuto al fatto che il coefficiente d'attrito volvente tra superficie e ruote era estremamente piccolo (intorno a \SI{0.001}{}), troppo piccolo per compensare le impurità all'interno della guida che hanno causato brusche frenate, o per compensare la curvatura a catenaria della guida che ha causato accelerazioni positive; riteniamo che con un attrito maggiore le misure sarebbero venute molto più stabili e i risultati più accurati. In figura \ref{fig:dati_puliti} sono invece riportati i dati senza le incongruenze statistiche.
 
 Infine, rileviamo che otteniamo un valore del prodotto $g\mu_d$ circa doppio utilizzando il metodo con angolo variabile rispetto alla misurazione con la guida in piano. Riteniamo ancora che la diversa precisione sia dovuta alla quantità di dati raccolti, mentre l'accuratezza dagli effetti di disturbo sopra descritti, meno evidenti con accelerazioni maggiori; dunque propendiamo per un \emph{valore vero} più prossimo a quello ottenuto variando l'angolo di inclinazione.
 
@@ -484,6 +484,12 @@ Infine, rileviamo che otteniamo un valore del prodotto $g\mu_d$ circa doppio uti
 \label{fig:acc_tot}
 \centering
 \includegraphics[scale=0.65]{dati_spuri.eps}
+\end{figure}
+\begin{figure}[h]
+\caption{Misure significative di accelerazione con guida inclinata ad angolo $\theta$ = \SI{0,0288 \pm 0.0003}{rad}}
+\label{fig:dati_puliti}
+\centering
+\includegraphics[scale=0.65]{dati_mod.eps}
 \end{figure}
 
 \begin{figure}[h]
